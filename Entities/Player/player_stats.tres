@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://deigs44gjlbig"]
+
+[ext_resource type="Script" path="res://Entities/Player/player_stats.gd" id="1_ssfmw"]
+
+[resource]
+script = ExtResource("1_ssfmw")
+BASE_JUMP_SPEED = 220.0
+JUMP_SPEED_INCR = 12.0
+STANDARD_GRAVITY = 1200.0
+EXTRA_GRAVITY = 600.0
+MAX_WALK_SPEED = 65.0
+MAX_RUN_SPEED = 100.0
+MAX_SPRINT_SPEED = 130.0
+WALK_ACCEL = 320.0
+STOP_DECEL = 200.0
+p_meter_starting_speed = 99.0
+max_p_meter = 1.4

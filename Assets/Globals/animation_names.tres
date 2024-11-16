@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="AnimationNames" load_steps=2 format=3 uid="uid://s1kanyilbxwx"]
+
+[ext_resource type="Script" path="res://Assets/Globals/animation_names.gd" id="1_j658c"]
+
+[resource]
+script = ExtResource("1_j658c")

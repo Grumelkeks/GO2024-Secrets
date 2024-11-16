@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PlayerInputActions" load_steps=2 format=3 uid="uid://c4h5nl482qsuc"]
+
+[ext_resource type="Script" path="res://Assets/Globals/player_input_actions.gd" id="1_av83b"]
+
+[resource]
+script = ExtResource("1_av83b")
+left = &"left"
+right = &"right"
+jump = &"jump"
