@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://jccu7y4yk0rk"]
+
+[ext_resource type="Script" path="res://Assets/Globals/ending_storage/ending_storage.gd" id="1_ho2vs"]
+[ext_resource type="Script" path="res://Assets/Globals/ending_storage/ending.gd" id="2_ifxvs"]
+
+[node name="EndingStorage" type="Node"]
+script = ExtResource("1_ho2vs")
+endings = Array[ExtResource("2_ifxvs")]([null, null, null, null, null, null, null, null, null, null, null, null])

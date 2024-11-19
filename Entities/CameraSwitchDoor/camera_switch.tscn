@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dr668kchp7y3w"]
 
-[ext_resource type="Script" path="res://scene_switch.gd" id="1_xtqh8"]
+[ext_resource type="Script" path="res://Entities/CameraSwitchDoor/scene_switch.gd" id="1_xtqh8"]
 
 [node name="CameraSwitch" type="Area2D"]
 collision_layer = 0

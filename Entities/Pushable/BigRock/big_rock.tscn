@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddiadwelhud4j"]
+
+[ext_resource type="PackedScene" uid="uid://c2gpflrv7e6sd" path="res://Entities/Pushable/pushable.tscn" id="1_s01cs"]
+[ext_resource type="Texture2D" uid="uid://dqri0ji2d73hl" path="res://Entities/Pushable/BigRock/big_rock.png" id="2_85lyj"]
+
+[node name="BigRock" instance=ExtResource("1_s01cs")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(0, -32)
+texture = ExtResource("2_85lyj")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." index="1"]
+position = Vector2(0, -32)
+polygon = PackedVector2Array(0, 32, 20, 31, 23, 28, 23, -32, -23, -32, -23, 28, -20, 31)

@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+@export var lights: Node
+
 @export var stats : PlayerStats
 
 var direction : float
@@ -8,12 +10,19 @@ var facing_dir : float = 1
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+var push_force = 20.0
+
 func _process(delta: float) -> void:
 	_apply_gravity(delta)
 	_handle_movement(delta)
 	_handle_animations()
-
+	
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 
 func _apply_gravity(delta : float) -> void:
 	if not is_on_floor() and Input.is_action_pressed(GlobalNames.actions.jump):

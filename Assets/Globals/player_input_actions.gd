@@ -4,5 +4,5 @@ extends Resource
 
 @export var left	 : StringName = "left"
 @export var right	 : StringName = "right"
-@export var run		 : StringName = "run"
 @export var jump	 : StringName = "jump"
+@export var interact : StringName = "interact"

@@ -1,10 +1,10 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dmmie87461ik"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://rd0tyvgpk6dl"]
 
-[ext_resource type="Texture2D" uid="uid://bmob52dqmx8d" path="res://Stages/Tilesets/BasicGroundTileset/ground_tileset.png" id="1_fyuav"]
+[ext_resource type="Texture2D" uid="uid://bmob52dqmx8d" path="res://Stages/Tilesets/BasicGroundTileset/ground_tileset.png" id="1_qtbal"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3jnrp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sefnv"]
 resource_name = "Ground"
-texture = ExtResource("1_fyuav")
+texture = ExtResource("1_qtbal")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -455,14 +455,15 @@ texture = ExtResource("1_fyuav")
 15:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [resource]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 16
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Dirt"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "Grass"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 terrain_set_0/terrain_2/name = "Rock"
-terrain_set_0/terrain_2/color = Color(0.501206, 0.0436313, 0.075063, 1)
+terrain_set_0/terrain_2/color = Color(0.572523, 0.165561, 0.19309, 1)
 terrain_set_0/terrain_3/name = "Clouds"
-terrain_set_0/terrain_3/color = Color(0.0973138, 0.204678, 0.476909, 1)
-sources/0 = SubResource("TileSetAtlasSource_3jnrp")
+terrain_set_0/terrain_3/color = Color(0.121042, 0.257672, 0.545242, 1)
+sources/0 = SubResource("TileSetAtlasSource_sefnv")

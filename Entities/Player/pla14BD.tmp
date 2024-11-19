@@ -14,7 +14,7 @@ STANDARD_GRAVITY = 1000.0
 EXTRA_GRAVITY = 600.0
 MAX_SPEED = 80.0
 WALK_ACCEL = 320.0
-STOP_DECEL = 400.0
+STOP_DECEL = 200.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vobum"]
 atlas = ExtResource("1_gr1qs")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://i60t4jpf5571"]
+
+[ext_resource type="Script" path="res://Entities/CameraSwitchDoor/camera_switch_door.gd" id="1_2agfb"]
+[ext_resource type="PackedScene" uid="uid://dr668kchp7y3w" path="res://Entities/CameraSwitchDoor/camera_switch.tscn" id="2_67rko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3ode"]
+size = Vector2(2, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prjwq"]
+size = Vector2(2, 32)
+
+[node name="CameraSwitchDoor" type="Node2D"]
+script = ExtResource("1_2agfb")
+
+[node name="CameraSwitchOut" parent="." instance=ExtResource("2_67rko")]
+position = Vector2(-8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSwitchOut"]
+shape = SubResource("RectangleShape2D_p3ode")
+
+[node name="CameraSwitchIn" parent="." instance=ExtResource("2_67rko")]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSwitchIn"]
+shape = SubResource("RectangleShape2D_prjwq")
