@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 @export var stats : PlayerStats
 
+@export var torch: PointLight2D
+
 var direction : float
 var facing_dir : float = 1
 
@@ -46,6 +48,8 @@ func _handle_animations() -> void:
 	if direction * sign(velocity.x) == -1:
 		animated_sprite.play(GlobalNames.animations.turn)
 	
+	if torch:
+		torch.position.x = facing_dir * 7
 	animated_sprite.flip_h = facing_dir < 0
 	
 	if not is_on_floor():

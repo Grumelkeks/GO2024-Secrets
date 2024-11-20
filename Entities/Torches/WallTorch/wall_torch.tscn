@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3l6xyypjkheu"]
+
+[ext_resource type="Texture2D" uid="uid://6fhewqw5ja67" path="res://Entities/Torches/WallTorch/wall_torch.png" id="1_ockwe"]
+[ext_resource type="Script" path="res://Entities/Torches/WallTorch/wall_torch.gd" id="1_y5w5q"]
+[ext_resource type="Texture2D" uid="uid://dn4imuh8jqesj" path="res://Entities/Torches/WallTorch/wall_torch_lit.png" id="2_ymnpp"]
+[ext_resource type="PackedScene" uid="uid://b4tt0lghka8do" path="res://Entities/Torches/torch_particles.tscn" id="3_eim2t"]
+[ext_resource type="Texture2D" uid="uid://c01eu44oeukc4" path="res://Entities/Torches/torch.tres" id="5_5drnq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgppp"]
+atlas = ExtResource("1_ockwe")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgn13"]
+atlas = ExtResource("2_ymnpp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ji7n8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgppp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgn13")
+}],
+"loop": true,
+"name": &"lit",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmo1v"]
+radius = 15.0
+
+[node name="WallTorch" type="Area2D"]
+position = Vector2(0, -8)
+collision_layer = 128
+collision_mask = 2
+script = ExtResource("1_y5w5q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ji7n8")
+autoplay = "default"
+
+[node name="TorchParticles" parent="." instance=ExtResource("3_eim2t")]
+position = Vector2(6, 0)
+emitting = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 0)
+shape = SubResource("CircleShape2D_hmo1v")
+
+[node name="TorchLight" type="PointLight2D" parent="."]
+position = Vector2(6, 0)
+color = Color(1, 1, 1, 0)
+texture = ExtResource("5_5drnq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GlobalNames="*res://Assets/Globals/global_names.tscn"
 CameraTransition="*res://Assets/Globals/camera_transition.tscn"
 EndingStorageGlobal="*res://Assets/Globals/ending_storage/ending_storage.tscn"
+MusicPlayer="*res://Assets/Globals/MusicPlayer/music_player.tscn"
 
 [display]
 
@@ -61,6 +62,7 @@ interact={
 2d_physics/layer_5="HiddenTile"
 2d_physics/layer_6="InteractionZones"
 2d_physics/layer_7="Pushable"
+2d_physics/layer_8="Torch"
 
 [rendering]
 

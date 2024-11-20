@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxsxf712kcww5"]
+
+[ext_resource type="Texture2D" uid="uid://duyq2x2smia5l" path="res://Entities/Torches/Torch/torch.png" id="1_6kui6"]
+[ext_resource type="PackedScene" uid="uid://b4tt0lghka8do" path="res://Entities/Torches/torch_particles.tscn" id="1_fjk0k"]
+[ext_resource type="Texture2D" uid="uid://c01eu44oeukc4" path="res://Entities/Torches/torch.tres" id="1_rkhnp"]
+
+[node name="Torch" type="PointLight2D"]
+position = Vector2(0, -6)
+texture = ExtResource("1_rkhnp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("1_6kui6")
+
+[node name="TorchParticles" parent="." instance=ExtResource("1_fjk0k")]
