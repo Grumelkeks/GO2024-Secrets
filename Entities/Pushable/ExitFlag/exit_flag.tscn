@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ccxuskijickwy" path="res://Entities/Pushable/ExitFlag/exit_flag.png" id="1_lno82"]
 [ext_resource type="PackedScene" uid="uid://c2gpflrv7e6sd" path="res://Entities/Pushable/pushable.tscn" id="1_rsjiq"]
 [ext_resource type="Texture2D" uid="uid://cka8k6bu87jni" path="res://Entities/Pushable/ExitFlag/flag.png" id="2_kkda2"]
-[ext_resource type="Resource" uid="uid://u6k2o41na71v" path="res://Assets/Globals/ending_storage/TempEnding/temp_ending.tres" id="5_a6whi"]
+[ext_resource type="Resource" uid="uid://c5o3n55vheuqh" path="res://Assets/Globals/ending_storage/Endings/GrassFlag/grass_flag.tres" id="5_200sk"]
 [ext_resource type="Script" path="res://Entities/Pushable/ExitFlag/exit_flag_zone.gd" id="5_lk6k6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phj37"]
@@ -24,16 +24,15 @@ texture = ExtResource("1_lno82")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="." index="2"]
 position = Vector2(0, -8)
-polygon = PackedVector2Array(-4, 7, 0, 8, 4, 7, 7, 4, 7, -4, 4, -8, -4, -8, -7, -4, -7, 4)
+polygon = PackedVector2Array(-4, 7, 0, 8, 4, 7, 8, 4, 8, -4, 4, -8, -4, -8, -8, -4, -8, 4)
 
-[node name="ExitFlagZone" type="Area2D" parent="." index="3"]
+[node name="ExitFlagZone" type="Area2D" parent="." index="3" node_paths=PackedStringArray("flag")]
 collision_layer = 32
 collision_mask = 2
 script = ExtResource("5_lk6k6")
-ending = ExtResource("5_a6whi")
+ending = ExtResource("5_200sk")
+flag = NodePath("../Flag")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitFlagZone" index="0"]
 position = Vector2(0, -56.5)
 shape = SubResource("RectangleShape2D_phj37")
-
-[connection signal="finished" from="ExitFlagZone" to="." method="_on_exit_flag_zone_finished"]

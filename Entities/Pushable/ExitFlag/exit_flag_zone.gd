@@ -1,26 +1,16 @@
 class_name ExitFlagZone
-extends Area2D
-
-signal finished()
+extends InteractionZone
 
 @export var ending: Ending
-
-@onready var flag: Sprite2D = $"../Flag"
+@export var flag: Sprite2D
 
 var tween : Tween
-var active = true
 
-func _ready() -> void:
-	body_entered.connect(_on_body_entered)
-
-func _on_body_entered(body : Node2D) -> void:
-	if body.name == "Player" and active:
-		active = false
-		_perform_action(body)
-
-func _perform_action(player : Player) -> void:
+func _perform_action(player: Player) -> void:
+	active = false
+	
 	var height = player.global_position.y
-	height = clamp(height, 154, 219)
+	height = clamp(height, global_position.y-80, global_position.y-16)
 	
 	flag.global_position.y = height
 	
@@ -32,9 +22,9 @@ func _perform_action(player : Player) -> void:
 	tween.tween_property(
 		flag, "modulate", Color(1,1,1,1), 0.5)
 	tween.tween_property(
-		flag, "global_position:y", 219, (219 - height)/50)
+		flag, "global_position:y", global_position.y-24, (global_position.y-16 - height)/50)
 	
 	await(tween.finished)
 	
-	EndingStorageGlobal.endings[0] = ending
-	get_tree().change_scene_to_packed(load("res://Assets/Globals/ending_storage/ending_storage_ui.tscn"))
+	EndingStorageGlobal.endings[ending.storage_pos] = ending
+	CameraTransition.camera_end_zoom()

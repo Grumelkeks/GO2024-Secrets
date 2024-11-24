@@ -196,6 +196,7 @@ position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_1oyk1")
 
 [node name="HiddenTileCollider" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_4e6sq")]
+collision_layer = 16
 player = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenTileCollider"]

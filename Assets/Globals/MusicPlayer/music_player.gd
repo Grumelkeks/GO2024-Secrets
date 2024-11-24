@@ -6,7 +6,6 @@ extends Node
 var tween : Tween
 
 func switch_music(to: AudioStream, duration: float) -> void:
-	
 	if _check_audio_player(audio_stream_player, audio_stream_player_2, to, duration): return
 	elif _check_audio_player(audio_stream_player_2, audio_stream_player, to, duration): return
 
@@ -32,8 +31,9 @@ func _set_tween(audio_player: AudioStreamPlayer, old_audio_player: AudioStreamPl
 	await(tween.finished)
 	old_audio_player.playing = false
 
-func current_music() -> AudioStream:
+func is_current_music(to_music: AudioStream) -> bool:
 	for child: AudioStreamPlayer in get_children():
 		if child.playing:
-			return child.stream
-	return null
+			if child.stream == to_music:
+				return false
+	return true

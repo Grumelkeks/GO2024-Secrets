@@ -1,0 +1,2 @@
+class_name Pushable
+extends RigidBody2D

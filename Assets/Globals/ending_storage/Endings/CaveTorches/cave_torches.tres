@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=3 format=3 uid="uid://cauubwtma4xcs"]
+
+[ext_resource type="Script" path="res://Assets/Globals/ending_storage/Endings/ending.gd" id="1_4ejx0"]
+[ext_resource type="Texture2D" uid="uid://c2vuhrspulocc" path="res://Assets/Globals/ending_storage/Endings/CaveTorches/cave_torches.png" id="2_gl4uu"]
+
+[resource]
+script = ExtResource("1_4ejx0")
+name = "Cave Torches"
+storage_pos = 5
+texture = ExtResource("2_gl4uu")

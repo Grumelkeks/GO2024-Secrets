@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3l6xyypjkheu"]
+[gd_scene load_steps=12 format=3 uid="uid://d3l6xyypjkheu"]
 
 [ext_resource type="Texture2D" uid="uid://6fhewqw5ja67" path="res://Entities/Torches/WallTorch/wall_torch.png" id="1_ockwe"]
 [ext_resource type="Script" path="res://Entities/Torches/WallTorch/wall_torch.gd" id="1_y5w5q"]
 [ext_resource type="Texture2D" uid="uid://dn4imuh8jqesj" path="res://Entities/Torches/WallTorch/wall_torch_lit.png" id="2_ymnpp"]
 [ext_resource type="PackedScene" uid="uid://b4tt0lghka8do" path="res://Entities/Torches/torch_particles.tscn" id="3_eim2t"]
-[ext_resource type="Texture2D" uid="uid://c01eu44oeukc4" path="res://Entities/Torches/torch.tres" id="5_5drnq"]
+[ext_resource type="Script" path="res://Entities/Torches/torch_flicker.gd" id="6_17k1e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bgppp"]
 atlas = ExtResource("1_ockwe")
@@ -36,6 +36,17 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hmo1v"]
 radius = 15.0
 
+[sub_resource type="Gradient" id="Gradient_50oq3"]
+offsets = PackedFloat32Array(0, 0.419913, 0.753247)
+colors = PackedColorArray(1, 1, 1, 1, 0.450648, 0.450648, 0.450648, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c2x27"]
+gradient = SubResource("Gradient_50oq3")
+width = 96
+height = 96
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="WallTorch" type="Area2D"]
 position = Vector2(0, -8)
 collision_layer = 128
@@ -57,6 +68,5 @@ shape = SubResource("CircleShape2D_hmo1v")
 [node name="TorchLight" type="PointLight2D" parent="."]
 position = Vector2(6, 0)
 color = Color(1, 1, 1, 0)
-texture = ExtResource("5_5drnq")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+texture = SubResource("GradientTexture2D_c2x27")
+script = ExtResource("6_17k1e")

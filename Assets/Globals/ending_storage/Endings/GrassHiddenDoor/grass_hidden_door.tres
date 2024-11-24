@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=3 format=3 uid="uid://7i1xl48rastb"]
+
+[ext_resource type="Script" path="res://Assets/Globals/ending_storage/Endings/ending.gd" id="1_ku56x"]
+[ext_resource type="Texture2D" uid="uid://cg6v4envww51s" path="res://Assets/Globals/ending_storage/Endings/GrassHiddenDoor/grass_hidden_door.png" id="2_6711t"]
+
+[resource]
+script = ExtResource("1_ku56x")
+name = "Grass Hidden Door"
+storage_pos = 2
+texture = ExtResource("2_6711t")

@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=3 uid="uid://tc6mk4bc5ic5"]
+
+[ext_resource type="Script" path="res://campfire.gd" id="1_7tofb"]
+[ext_resource type="Texture2D" uid="uid://cb1k04s3rbq8p" path="res://Entities/Campfire/Bonfire.png" id="2_rtc0k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxame"]
+atlas = ExtResource("2_rtc0k")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03deb"]
+atlas = ExtResource("2_rtc0k")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0jum"]
+atlas = ExtResource("2_rtc0k")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1a4eg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxame")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03deb")
+}],
+"loop": false,
+"name": &"light_up",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0jum")
+}],
+"loop": true,
+"name": &"lit",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_or3fw"]
+radius = 9.0
+
+[sub_resource type="Curve" id="Curve_8r653"]
+_data = [Vector2(0.00754717, 0.532418), 0.0, 0.0, 0, 0, Vector2(0.973585, 0.0340747), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ug8x6"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[node name="Campfire" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_7tofb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_1a4eg")
+animation = &"lit"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_or3fw")
+
+[node name="TorchParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, -8)
+emitting = false
+amount = 100
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(6, 1)
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 6.0
+angular_velocity_min = 45.0
+angular_velocity_max = 90.0
+linear_accel_max = 1.5
+angle_max = 45.0
+scale_amount_min = 1.5
+scale_amount_max = 2.5
+scale_amount_curve = SubResource("Curve_8r653")
+color = Color(0.921569, 0.266667, 0.266667, 1)
+color_ramp = SubResource("Gradient_ug8x6")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

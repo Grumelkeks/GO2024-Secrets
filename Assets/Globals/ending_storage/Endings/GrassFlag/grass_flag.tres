@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=3 format=3 uid="uid://c5o3n55vheuqh"]
+
+[ext_resource type="Script" path="res://Assets/Globals/ending_storage/Endings/ending.gd" id="1_wd1i8"]
+[ext_resource type="Texture2D" uid="uid://c2ygjmab8aw3y" path="res://Assets/Globals/ending_storage/Endings/GrassFlag/grass_flag.png" id="2_m5hdn"]
+
+[resource]
+script = ExtResource("1_wd1i8")
+name = "Grass Flag"
+storage_pos = 0
+texture = ExtResource("2_m5hdn")

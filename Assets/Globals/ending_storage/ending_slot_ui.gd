@@ -1,8 +1,13 @@
 extends Panel
 
-@onready var ending_display: Sprite2D = $CenterContainer/ending_display
+@export var ending_color: Texture2D
+
+@onready var ending_display: Sprite2D = $CenterContainer/EndingDisplay
+@onready var slot: Sprite2D = $Slot
+
 
 func update(ending: Ending) -> void:
+	slot.texture = ending_color
 	if !ending:
 		ending_display.visible = false
 	else:

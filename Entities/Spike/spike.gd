@@ -1,9 +1,8 @@
 class_name Spike
-extends Area2D
+extends InteractionZone
 
-@export var ending: Ending = preload("res://Assets/Globals/ending_storage/TempEnding/temp_ending.tres")
+@export var ending: Ending
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		EndingStorageGlobal.endings[2] = ending
-		get_tree().call_deferred("change_scene_to_packed", load("res://Assets/Globals/ending_storage/ending_storage_ui.tscn"))
+func _perform_action(_player: Player) -> void:
+	EndingStorageGlobal.endings[ending.storage_pos] = ending
+	CameraTransition.camera_end_zoom()

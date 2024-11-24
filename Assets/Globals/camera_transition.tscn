@@ -6,3 +6,6 @@
 script = ExtResource("1_e3wdl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ZoomWaitTimer" type="Timer" parent="."]
+one_shot = true

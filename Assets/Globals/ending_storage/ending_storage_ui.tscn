@@ -1,77 +1,75 @@
-[gd_scene load_steps=4 format=3 uid="uid://btofah0iwvovk"]
+[gd_scene load_steps=6 format=3 uid="uid://btofah0iwvovk"]
 
 [ext_resource type="Script" path="res://Assets/Globals/ending_storage/ending_storage_ui.gd" id="1_1jknx"]
-[ext_resource type="Texture2D" uid="uid://cl6htpqtsj12a" path="res://Assets/Globals/ending_storage/endings_storage_background.png" id="1_o3i5c"]
 [ext_resource type="PackedScene" uid="uid://d2jgmfcgk1cl0" path="res://Assets/Globals/ending_storage/ending_slot_ui.tscn" id="2_wbidx"]
+[ext_resource type="Texture2D" uid="uid://ccpjomkl7hti2" path="res://Assets/Globals/ending_storage/Endings/icon_green.tres" id="4_ercn2"]
+[ext_resource type="Texture2D" uid="uid://wak5br18hrma" path="res://Assets/Globals/ending_storage/Endings/icon_red.tres" id="5_nqxij"]
+[ext_resource type="Texture2D" uid="uid://ccjempq04chis" path="res://Assets/Globals/ending_storage/Endings/icon_blue.tres" id="6_wgdgb"]
 
 [node name="EndingStorage_UI" type="CanvasLayer"]
+offset = Vector2(-2880, -1620)
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, -2880, -1620)
 script = ExtResource("1_1jknx")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="GridContainer" type="GridContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -41.0
-offset_top = -31.0
-offset_right = 41.0
-offset_bottom = 31.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_o3i5c")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -38.0
-offset_top = -28.0
-offset_right = 38.0
-offset_bottom = 28.0
+offset_left = -166.0
+offset_top = -124.0
+offset_right = 166.0
+offset_bottom = 124.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 4
 
-[node name="ending_slot_ui" parent="NinePatchRect/GridContainer" instance=ExtResource("2_wbidx")]
+[node name="ending_slot_ui" parent="GridContainer" instance=ExtResource("2_wbidx")]
 layout_mode = 2
+ending_color = ExtResource("4_ercn2")
 
-[node name="ending_slot_ui2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_wbidx")]
+[node name="ending_slot_ui2" parent="GridContainer" instance=ExtResource("2_wbidx")]
 layout_mode = 2
+ending_color = ExtResource("4_ercn2")
 
-[node name="ending_slot_ui3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_wbidx")]
+[node name="ending_slot_ui3" parent="GridContainer" instance=ExtResource("2_wbidx")]
 layout_mode = 2
+ending_color = ExtResource("4_ercn2")
 
-[node name="ending_slot_ui4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_wbidx")]
+[node name="ending_slot_ui4" parent="GridContainer" instance=ExtResource("2_wbidx")]
 layout_mode = 2
+ending_color = ExtResource("4_ercn2")
 
-[node name="ending_slot_ui5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_wbidx")]
+[node name="ending_slot_ui5" parent="GridContainer" instance=ExtResource("2_wbidx")]
 layout_mode = 2
+ending_color = ExtResource("5_nqxij")
 
-[node name="ending_slot_ui6" parent="NinePatchRect/GridContainer" instance=ExtResource("2_wbidx")]
+[node name="ending_slot_ui6" parent="GridContainer" instance=ExtResource("2_wbidx")]
 layout_mode = 2
+ending_color = ExtResource("5_nqxij")
 
-[node name="ending_slot_ui7" parent="NinePatchRect/GridContainer" instance=ExtResource("2_wbidx")]
+[node name="ending_slot_ui7" parent="GridContainer" instance=ExtResource("2_wbidx")]
 layout_mode = 2
+ending_color = ExtResource("5_nqxij")
 
-[node name="ending_slot_ui8" parent="NinePatchRect/GridContainer" instance=ExtResource("2_wbidx")]
+[node name="ending_slot_ui8" parent="GridContainer" instance=ExtResource("2_wbidx")]
 layout_mode = 2
+ending_color = ExtResource("5_nqxij")
 
-[node name="ending_slot_ui9" parent="NinePatchRect/GridContainer" instance=ExtResource("2_wbidx")]
+[node name="ending_slot_ui9" parent="GridContainer" instance=ExtResource("2_wbidx")]
 layout_mode = 2
+ending_color = ExtResource("6_wgdgb")
 
-[node name="ending_slot_ui10" parent="NinePatchRect/GridContainer" instance=ExtResource("2_wbidx")]
+[node name="ending_slot_ui10" parent="GridContainer" instance=ExtResource("2_wbidx")]
 layout_mode = 2
+ending_color = ExtResource("6_wgdgb")
 
-[node name="ending_slot_ui11" parent="NinePatchRect/GridContainer" instance=ExtResource("2_wbidx")]
+[node name="ending_slot_ui11" parent="GridContainer" instance=ExtResource("2_wbidx")]
 layout_mode = 2
+ending_color = ExtResource("6_wgdgb")
 
-[node name="ending_slot_ui12" parent="NinePatchRect/GridContainer" instance=ExtResource("2_wbidx")]
+[node name="ending_slot_ui12" parent="GridContainer" instance=ExtResource("2_wbidx")]
 layout_mode = 2
+ending_color = ExtResource("6_wgdgb")

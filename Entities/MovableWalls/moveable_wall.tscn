@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcspsu46hpo3g"]
+
+[ext_resource type="Script" path="res://Entities/MovableWalls/moveable_wall.gd" id="1_1uhda"]
+[ext_resource type="Texture2D" uid="uid://bywoutwnhvks0" path="res://Entities/MovableWalls/wall.png" id="1_jlxau"]
+[ext_resource type="Texture2D" uid="uid://ck2oyabatiw36" path="res://Entities/MovableWalls/base.png" id="2_yqt52"]
+[ext_resource type="AudioStream" uid="uid://dg04ey64vryyh" path="res://Entities/MovableWalls/Sounds/rock_grind.mp3" id="4_lbsv7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6anmw"]
+size = Vector2(12, 48)
+
+[node name="MoveableWall" type="StaticBody2D"]
+script = ExtResource("1_1uhda")
+
+[node name="WallSprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = ExtResource("1_jlxau")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 48)
+
+[node name="BaseSprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_yqt52")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_6anmw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_lbsv7")
+volume_db = -4.0
+bus = &"Sound"

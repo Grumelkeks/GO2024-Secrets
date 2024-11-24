@@ -1,6 +1,8 @@
 extends CanvasLayer
 
-@onready var slots: Array = $NinePatchRect/GridContainer.get_children()
+signal ui_finished()
+
+@onready var slots: Array = $GridContainer.get_children()
 
 var timer : Timer = Timer.new()
 
@@ -15,4 +17,5 @@ func update_slots():
 		slots[i].update(EndingStorageGlobal.endings[i])
 
 func _on_time_out():
+	ui_finished.emit()
 	get_tree().change_scene_to_packed(load("res://Stages/StartArea/start_area.tscn"))

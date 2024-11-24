@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fksypqbohs0i"
-path="res://.godot/imported/temp_ending.png-85432db1b0757c3705db8dfc5302a9c7.ctex"
+uid="uid://dp700ece8k4oc"
+path="res://.godot/imported/IconsEmpty.png-a7431fbcdd4d1dae040703f0880cb74f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Globals/ending_storage/TempEnding/temp_ending.png"
-dest_files=["res://.godot/imported/temp_ending.png-85432db1b0757c3705db8dfc5302a9c7.ctex"]
+source_file="res://Assets/Globals/ending_storage/Endings/IconsEmpty.png"
+dest_files=["res://.godot/imported/IconsEmpty.png-a7431fbcdd4d1dae040703f0880cb74f.ctex"]
 
 [params]
 

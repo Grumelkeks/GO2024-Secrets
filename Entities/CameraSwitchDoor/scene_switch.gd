@@ -1,16 +1,16 @@
 class_name CameraSwitch
-extends Area2D
+extends InteractionZone
 
 var from : Camera2D
 var to : Camera2D
-var duration : float = 1.0
+var multiplier : float = 1.0
 
 var to_music : AudioStream
 
-func _on_body_entered(_body: Node2D) -> void:
-	if MusicPlayer.current_music() != to_music:
-		MusicPlayer.switch_music(to_music, duration)
+func _perform_action(player: Player) -> void:
 	if(CameraTransition.transitioning == true):
-		await(CameraTransition.finished_transition)
-	CameraTransition.transition_camera(from, to, duration)
-	
+		CameraTransition.interfere_transition(from, to)
+	elif from.is_current():
+		CameraTransition.transition_camera(player, from, to, multiplier)
+	if to_music != null:
+		MusicPlayer.switch_music(to_music, 1/multiplier)

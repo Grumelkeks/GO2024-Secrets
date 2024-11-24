@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://duju82rf1khgb"]
+
+[ext_resource type="Script" path="res://Entities/OneWayPlatform/torch_light_remover.gd" id="1_d47ue"]
+[ext_resource type="Texture2D" uid="uid://bfxhw12nrxej1" path="res://Entities/OneWayPlatform/grass_3x2.png" id="1_lor8s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8fuu"]
+size = Vector2(48, 32)
+
+[node name="OneWayPlatform" type="StaticBody2D"]
+z_index = 2
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_lor8s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_t8fuu")
+one_way_collision = true
+
+[node name="TorchLightRemover" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_d47ue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TorchLightRemover"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_t8fuu")
