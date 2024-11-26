@@ -1,14 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://drh4ogecomr7e"]
+[gd_scene load_steps=4 format=3 uid="uid://drh4ogecomr7e"]
 
 [ext_resource type="Script" path="res://Entities/MovablePlatform/movable_platform.gd" id="1_uleyk"]
-[ext_resource type="Texture2D" uid="uid://4ofssgkb2lty" path="res://Entities/MovablePlatform/Clouds.png" id="2_vgyj5"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a16nc"]
-atlas = ExtResource("2_vgyj5")
-region = Rect2(0, 0, 32, 15)
+[ext_resource type="Texture2D" uid="uid://duw15dmowf5th" path="res://Entities/OneWayCloud/small_cloud.png" id="2_alxej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xil5n"]
-size = Vector2(21, 12)
+resource_local_to_scene = true
+size = Vector2(22, 12)
 
 [node name="MovablePlatform" type="PathFollow2D"]
 rotates = false
@@ -18,7 +15,7 @@ script = ExtResource("1_uleyk")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform"]
 position = Vector2(0, -0.5)
-texture = SubResource("AtlasTexture_a16nc")
+texture = ExtResource("2_alxej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 shape = SubResource("RectangleShape2D_xil5n")

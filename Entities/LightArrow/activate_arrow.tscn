@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv8jjvbcx0iqw"]
+
+[ext_resource type="Script" path="res://Entities/LightArrow/activate_arrow.gd" id="1_qvkvc"]
+
+[node name="ActivateArrow" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_qvkvc")

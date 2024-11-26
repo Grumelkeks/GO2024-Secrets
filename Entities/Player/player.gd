@@ -14,6 +14,14 @@ var facing_dir : float = 1
 
 var push_force = 20.0
 
+@onready var audio_listener_2d: AudioListener2D = $AudioListener2D
+
+var platform: StaticBody2D
+var platform_old_pos: float = 0
+
+func _ready() -> void:
+	audio_listener_2d.make_current()
+
 func _process(delta: float) -> void:
 	_apply_gravity(delta)
 	_handle_movement(delta)
@@ -21,10 +29,22 @@ func _process(delta: float) -> void:
 	
 	move_and_slide()
 	
+	if not is_on_floor():
+		platform = null
+	
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
-		if c.get_collider() is RigidBody2D:
+		var collider = c.get_collider()
+		if collider is Pushable:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+		if collider.name == "Platform":
+			if platform != collider:
+				platform = collider
+				platform_old_pos = platform.global_position.x
+				platform.get_parent().bounce()
+			else:
+				global_position.x += platform.global_position.x - platform_old_pos
+				platform_old_pos = platform.global_position.x
 
 func _apply_gravity(delta : float) -> void:
 	if not is_on_floor() and Input.is_action_pressed(GlobalNames.actions.jump):

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0yr3jvvjdptv"
-path="res://.godot/imported/cloud_4x1.png-ee9eb7345210579da72401698c8f513b.ctex"
+uid="uid://bq23786f0r6v5"
+path="res://.godot/imported/grass_flag.png-7b396cf7154e02eafe5d229c82ea1b5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/OneWayPlatform/cloud_4x1.png"
-dest_files=["res://.godot/imported/cloud_4x1.png-ee9eb7345210579da72401698c8f513b.ctex"]
+source_file="res://Entities/Pushable/ExitFlag/grass_flag.png"
+dest_files=["res://.godot/imported/grass_flag.png-7b396cf7154e02eafe5d229c82ea1b5b.ctex"]
 
 [params]
 

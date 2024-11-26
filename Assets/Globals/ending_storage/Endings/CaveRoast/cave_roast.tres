@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=3 format=3 uid="uid://bao4icum4yjjw"]
+
+[ext_resource type="Script" path="res://Assets/Globals/ending_storage/Endings/ending.gd" id="1_peuth"]
+[ext_resource type="Texture2D" uid="uid://bigij72ol4uek" path="res://Assets/Globals/ending_storage/Endings/CaveRoast/cave_roast.png" id="2_wc274"]
+
+[resource]
+script = ExtResource("1_peuth")
+name = "Cave Roast"
+storage_pos = 7
+texture = ExtResource("2_wc274")

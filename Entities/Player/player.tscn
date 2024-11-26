@@ -201,3 +201,5 @@ player = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenTileCollider"]
 shape = SubResource("RectangleShape2D_8x7te")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]

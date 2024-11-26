@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0i01oyde2m84"]
+
+[ext_resource type="Script" path="res://Entities/OneWayCloud/one_way_cloud.gd" id="1_gb3v5"]
+[ext_resource type="Texture2D" uid="uid://ckp56ubsnxeus" path="res://Entities/OneWayCloud/big_cloud.png" id="2_eb428"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_we7wc"]
+resource_local_to_scene = true
+size = Vector2(30, 14)
+
+[node name="OneWayCloud" type="StaticBody2D"]
+script = ExtResource("1_gb3v5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_eb428")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_we7wc")
+one_way_collision = true

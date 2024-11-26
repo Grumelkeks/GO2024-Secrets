@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_mf7o0")
 name = "Air Flag"
-storage_pos = 7
+storage_pos = 8
 texture = ExtResource("2_jnhih")

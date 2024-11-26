@@ -1,17 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxsxf712kcww5"]
+[gd_scene load_steps=6 format=3 uid="uid://cxsxf712kcww5"]
 
 [ext_resource type="Texture2D" uid="uid://duyq2x2smia5l" path="res://Entities/Torches/Torch/torch.png" id="1_6kui6"]
 [ext_resource type="PackedScene" uid="uid://b4tt0lghka8do" path="res://Entities/Torches/torch_particles.tscn" id="1_fjk0k"]
 [ext_resource type="Texture2D" uid="uid://c01eu44oeukc4" path="res://Entities/Torches/torch.tres" id="1_rkhnp"]
 [ext_resource type="Script" path="res://Entities/Torches/torch_flicker.gd" id="2_27uuf"]
+[ext_resource type="AudioStream" uid="uid://cutalgsur3lri" path="res://Entities/Torches/LightingFire/fire_loop.ogg" id="5_jr7hg"]
 
 [node name="Torch" type="PointLight2D"]
 position = Vector2(0, -6)
 texture = ExtResource("1_rkhnp")
 script = ExtResource("2_27uuf")
+base_scale = 0.8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
 texture = ExtResource("1_6kui6")
 
 [node name="TorchParticles" parent="." instance=ExtResource("1_fjk0k")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jr7hg")
+volume_db = -25.0
+autoplay = true
+bus = &"Sound"

@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4o1xiilvf7uy"]
+
+[ext_resource type="Texture2D" uid="uid://dfc2wgkyn0m2m" path="res://Entities/Castle/castle.png" id="1_4bje4"]
+[ext_resource type="Script" path="res://Entities/Castle/castle_door.gd" id="1_22ell"]
+[ext_resource type="Texture2D" uid="uid://xjb8b785fflm" path="res://Entities/Castle/castle_roof.png" id="1_kgyg4"]
+[ext_resource type="Script" path="res://Entities/Castle/castle_roof.gd" id="3_usueh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3olov"]
+size = Vector2(8, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oul8l"]
+size = Vector2(12, 4)
+
+[node name="Castle" type="StaticBody2D"]
+
+[node name="Roof" type="Sprite2D" parent="."]
+z_index = 12
+position = Vector2(0, -24)
+texture = ExtResource("1_kgyg4")
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = ExtResource("1_4bje4")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -13)
+polygon = PackedVector2Array(-22, -12, 22, -12, 22, -35, 8, -35, 5, -13, -5, -13, -8, -35, -22, -35)
+
+[node name="CastleDoor" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_22ell")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CastleDoor"]
+position = Vector2(4, -11.5)
+shape = SubResource("RectangleShape2D_3olov")
+
+[node name="CastleRoof" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("3_usueh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CastleRoof"]
+position = Vector2(0, -28)
+shape = SubResource("RectangleShape2D_oul8l")

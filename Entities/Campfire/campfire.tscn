@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://tc6mk4bc5ic5"]
+[gd_scene load_steps=12 format=3 uid="uid://tc6mk4bc5ic5"]
 
-[ext_resource type="Script" path="res://campfire.gd" id="1_7tofb"]
+[ext_resource type="Script" path="res://Entities/Campfire/campfire.gd" id="1_7tofb"]
 [ext_resource type="Texture2D" uid="uid://cb1k04s3rbq8p" path="res://Entities/Campfire/Bonfire.png" id="2_rtc0k"]
+[ext_resource type="AudioStream" uid="uid://cutalgsur3lri" path="res://Entities/Torches/LightingFire/fire_loop.ogg" id="3_vq1ta"]
+[ext_resource type="Resource" uid="uid://bao4icum4yjjw" path="res://Assets/Globals/ending_storage/Endings/CaveRoast/cave_roast.tres" id="5_pgu8c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxame"]
 atlas = ExtResource("2_rtc0k")
@@ -43,7 +45,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_or3fw"]
-radius = 9.0
+radius = 14.0
 
 [sub_resource type="Curve" id="Curve_8r653"]
 _data = [Vector2(0.00754717, 0.532418), 0.0, 0.0, 0, 0, Vector2(0.973585, 0.0340747), 0.0, 0.0, 0, 0]
@@ -56,6 +58,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 collision_layer = 32
 collision_mask = 2
 script = ExtResource("1_7tofb")
+ending = ExtResource("5_pgu8c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
@@ -91,3 +94,11 @@ color_ramp = SubResource("Gradient_ug8x6")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="RoastTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vq1ta")
+volume_db = -10.0
+max_distance = 400.0
+attenuation = 2.0

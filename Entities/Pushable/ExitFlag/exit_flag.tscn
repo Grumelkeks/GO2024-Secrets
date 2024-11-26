@@ -10,11 +10,12 @@
 size = Vector2(2, 79)
 
 [node name="ExitFlag" instance=ExtResource("1_rsjiq")]
+z_index = 1
 can_sleep = false
 
 [node name="Flag" type="Sprite2D" parent="." index="0"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(8, -86)
+position = Vector2(0, -86)
 texture = ExtResource("2_kkda2")
 offset = Vector2(0, -0.5)
 

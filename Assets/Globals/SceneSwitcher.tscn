@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://Assets/Globals/scene_switcher.gd" id="1_2eih3"]
 
 [node name="SceneSwitcher" type="Node"]
+process_mode = 3
 script = ExtResource("1_2eih3")

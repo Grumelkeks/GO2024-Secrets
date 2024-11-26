@@ -7,6 +7,8 @@ extends Node
 @export var torches_ending: Ending = preload("res://Assets/Globals/ending_storage/Endings/CaveTorches/cave_torches.tres")
 var once = true
 
+var campfire_lit = false
+
 func _process(_delta: float) -> void:
 	if lit_torches.size() >= 7:
 		set_process(false)

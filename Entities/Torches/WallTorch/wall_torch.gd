@@ -4,6 +4,10 @@ extends InteractionZone
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var torch_particles: CPUParticles2D = $TorchParticles
 @onready var torch_light: PointLight2D = $TorchLight
+@onready var audio_stream_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+const PITCH_VARIATION: float = 0.4
+var rand_gen = RandomNumberGenerator.new()
 
 signal is_lit()
 
@@ -27,6 +31,11 @@ func _perform_action(player: Player) -> void:
 func _action() -> void:
 	active = false
 	is_lit.emit()
+	
+	if not already_lit:
+		var rand_pitch = rand_gen.randf_range(-PITCH_VARIATION, PITCH_VARIATION)
+		audio_stream_player.pitch_scale += rand_pitch
+		audio_stream_player.play(0.08)
 	
 	animated_sprite_2d.play("lit")
 	torch_particles.emitting = true

@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_wd1i8")
-name = "Grass Flag"
+name = ""
 storage_pos = 0
 texture = ExtResource("2_m5hdn")

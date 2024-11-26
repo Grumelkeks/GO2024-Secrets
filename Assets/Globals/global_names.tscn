@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://c4h5nl482qsuc" path="res://Assets/Globals/player_input_actions.tres" id="3_d8yh1"]
 
 [node name="GlobalNames" type="Node"]
+process_mode = 3
 script = ExtResource("1_uyeyi")
 animations = ExtResource("2_kki8l")
 actions = ExtResource("3_d8yh1")

@@ -3,37 +3,37 @@ extends Node
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var audio_stream_player_2: AudioStreamPlayer = $AudioStreamPlayer2
 
-var tween : Tween
+var elapsed: float = 0.0
 
-func switch_music(to: AudioStream, duration: float) -> void:
-	if _check_audio_player(audio_stream_player, audio_stream_player_2, to, duration): return
-	elif _check_audio_player(audio_stream_player_2, audio_stream_player, to, duration): return
+var from_player: AudioStreamPlayer
+var to_player: AudioStreamPlayer
+var multiplier: float
 
-func _check_audio_player(audio_player: AudioStreamPlayer, old_audio_player: AudioStreamPlayer, to: AudioStream, duration: float) -> bool:
-	if not audio_player.playing:
-			audio_player.stream = to
-			audio_player.volume_db = -18
-			var time: float = old_audio_player.get_playback_position()
-			audio_player.play(time)
-			_set_tween(audio_player, old_audio_player, duration)
+func _ready() -> void:
+	set_process(false)
+
+func switch_music(to_num: int, to: AudioStream, m_multiplier: float) -> void:
+	from_player = get_child(1-to_num)
+	to_player = get_child(to_num)
+	multiplier = m_multiplier
+	to_player.stop()
+	to_player.stream = to
+	var time: float = from_player.get_playback_position()
+	to_player.play(time)
+	
+	elapsed = 0.0
+	set_process(true)
+
+func _process(delta: float) -> void:
+	from_player.volume_db = lerp(0, -18, elapsed)
+	to_player.volume_db = lerp(-18, 0, elapsed)
+	elapsed += (delta * multiplier)
+	
+	if elapsed > 1:
+		from_player.stop()
+		set_process(false)
+
+func is_current_music(to_num):
+	if get_child(to_num) == to_player:
+		return true
 	return false
-
-func _set_tween(audio_player: AudioStreamPlayer, old_audio_player: AudioStreamPlayer, duration: float):
-	if(tween):
-		tween.kill()
-	tween = get_tree().create_tween().set_ease(Tween.EASE_IN).set_parallel(true)
-	
-	tween.tween_property(
-		old_audio_player, "volume_db", -18, duration)
-	tween.tween_property(
-		audio_player, "volume_db", 0, duration)
-	
-	await(tween.finished)
-	old_audio_player.playing = false
-
-func is_current_music(to_music: AudioStream) -> bool:
-	for child: AudioStreamPlayer in get_children():
-		if child.playing:
-			if child.stream == to_music:
-				return false
-	return true

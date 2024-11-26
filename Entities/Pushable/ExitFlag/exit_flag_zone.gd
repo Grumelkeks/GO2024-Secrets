@@ -9,10 +9,17 @@ var tween : Tween
 func _perform_action(player: Player) -> void:
 	active = false
 	
-	var height = player.global_position.y
-	height = clamp(height, global_position.y-80, global_position.y-16)
+	var height = player.global_position.y - 6
+	height = clamp(height, global_position.y-80, global_position.y-22)
+	
+	player.set_process(false)
 	
 	flag.global_position.y = height
+	if flag.global_position.x < player.global_position.x:
+		player.get_node("AnimatedSprite2D").flip_h = true
+		flag.flip_h = true
+	else:
+		player.get_node("AnimatedSprite2D").flip_h = false
 	
 	if(tween):
 		tween.kill()
@@ -22,7 +29,9 @@ func _perform_action(player: Player) -> void:
 	tween.tween_property(
 		flag, "modulate", Color(1,1,1,1), 0.5)
 	tween.tween_property(
-		flag, "global_position:y", global_position.y-24, (global_position.y-16 - height)/50)
+		flag, "global_position:y", global_position.y-22, (global_position.y-16 - height)/50)
+	tween.parallel().tween_property(
+		player, "global_position:y", global_position.y-16, (global_position.y-16 - height)/50)
 	
 	await(tween.finished)
 	

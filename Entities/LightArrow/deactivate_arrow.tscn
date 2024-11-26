@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr50oqb6gapba"]
+
+[ext_resource type="Script" path="res://Entities/LightArrow/deactivate_arrow.gd" id="1_fin3j"]
+
+[node name="DeactivateArrow" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_fin3j")

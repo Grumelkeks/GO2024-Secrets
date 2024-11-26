@@ -1,6 +1,5 @@
+class_name EndingStorageUI
 extends CanvasLayer
-
-signal ui_finished()
 
 @onready var slots: Array = $GridContainer.get_children()
 
@@ -17,5 +16,4 @@ func update_slots():
 		slots[i].update(EndingStorageGlobal.endings[i])
 
 func _on_time_out():
-	ui_finished.emit()
-	get_tree().change_scene_to_packed(load("res://Stages/StartArea/start_area.tscn"))
+	SceneSwitcher.on_ui_finished()

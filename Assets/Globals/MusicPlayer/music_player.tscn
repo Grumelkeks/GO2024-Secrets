@@ -4,10 +4,12 @@
 [ext_resource type="AudioStream" uid="uid://66bimkxiavjn" path="res://Assets/Audio/Music/NormalTheme.ogg" id="2_aek6y"]
 
 [node name="MusicPlayer" type="Node"]
+process_mode = 3
 script = ExtResource("1_r67bf")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_aek6y")
+volume_db = -18.0
 bus = &"Music"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]

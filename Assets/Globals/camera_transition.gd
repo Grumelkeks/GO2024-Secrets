@@ -1,5 +1,6 @@
 extends Node
 
+signal transition_finished
 signal zoom_finished
 
 @onready var camera: Camera2D = $Camera2D
@@ -7,16 +8,16 @@ signal zoom_finished
 const WIDTH: float = 480
 const HEIGHT: float = 270
 
-const ZOOM_DURATION: float = 1.5
+const ZOOM_MULTIPLIER: float = 1
 const WAIT_DURATION: float = 1
-const END_ZOOM = Vector2(12, 12)
-var tween: Tween
+var end_cam: Camera2D
 @onready var zoom_wait_timer: Timer = $ZoomWaitTimer
 
 
 var transitioning = false
 
 var player: Player
+var from: Camera2D
 var from_pos: Vector2
 var to: Camera2D
 var multiplier: float
@@ -34,6 +35,7 @@ func transition_camera(m_player: Player, m_from: Camera2D, m_to: Camera2D, m_mul
 	transitioning = true
 	
 	player = m_player
+	from = m_from
 	from_pos = m_from.global_position
 	to = m_to
 	multiplier = m_multiplier
@@ -92,7 +94,8 @@ func _process(delta: float) -> void:
 	if to.global_position.y > to.limit_bottom - HEIGHT/2:
 		to_global_position.y = to.limit_bottom - HEIGHT/2
 	
-	camera.global_position = lerp(from_pos, to_global_position, elapsed)
+	camera.global_position = lerp(from_pos, to_global_position, pow(elapsed, 1.5))
+	camera.zoom = lerp(from.zoom, to.zoom, pow(elapsed, (1.5 + 3*elapsed)))
 	elapsed += (delta * multiplier)
 	
 	if elapsed > 1:
@@ -101,25 +104,21 @@ func _process(delta: float) -> void:
 			to.position_smoothing_enabled = true
 		
 			transitioning = false
+			transition_finished.emit()
 			set_process(false)
 
 func camera_end_zoom() -> void:
-	var player: Player = get_parent().get_node("StartArea").get_node("Player")
-	player.set_process(false)
+	player = get_parent().get_node("StartArea").get_node("Player")
+	player.get_tree().paused = true
 	
-	if(tween):
-		tween.kill()
-	tween = get_tree().create_tween().set_ease(
-		Tween.EASE_OUT)
+	transition_camera(player, _current_cam(), end_cam, ZOOM_MULTIPLIER)
 	
-	tween.tween_property(
-		CameraTransition._current_cam(), "zoom", CameraTransition.END_ZOOM, ZOOM_DURATION)
-	
-	await(tween.finished)
+	await(transition_finished)
 	
 	zoom_wait_timer.start(WAIT_DURATION)
 
 func _on_zoom_wait_timer_timeout() -> void:
+	player.get_tree().paused = false
 	zoom_finished.emit()
 
 func _current_cam() -> Camera2D:
@@ -127,6 +126,8 @@ func _current_cam() -> Camera2D:
 	
 	var cameras: Node = get_parent().get_node("StartArea").get_node("Cameras")
 	for child: Camera2D in cameras.get_children():
+		if child.name == "EndCamera":
+			end_cam = child
 		if child.is_current():
 			cam = child
 			return cam

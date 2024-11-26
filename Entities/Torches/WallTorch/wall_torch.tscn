@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3l6xyypjkheu"]
+[gd_scene load_steps=13 format=3 uid="uid://d3l6xyypjkheu"]
 
 [ext_resource type="Texture2D" uid="uid://6fhewqw5ja67" path="res://Entities/Torches/WallTorch/wall_torch.png" id="1_ockwe"]
 [ext_resource type="Script" path="res://Entities/Torches/WallTorch/wall_torch.gd" id="1_y5w5q"]
 [ext_resource type="Texture2D" uid="uid://dn4imuh8jqesj" path="res://Entities/Torches/WallTorch/wall_torch_lit.png" id="2_ymnpp"]
 [ext_resource type="PackedScene" uid="uid://b4tt0lghka8do" path="res://Entities/Torches/torch_particles.tscn" id="3_eim2t"]
 [ext_resource type="Script" path="res://Entities/Torches/torch_flicker.gd" id="6_17k1e"]
+[ext_resource type="AudioStream" uid="uid://db8u8qv4u8obr" path="res://Entities/Torches/LightingFire/LightingFire.ogg" id="6_qt3ky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bgppp"]
 atlas = ExtResource("1_ockwe")
@@ -70,3 +71,8 @@ position = Vector2(6, 0)
 color = Color(1, 1, 1, 0)
 texture = SubResource("GradientTexture2D_c2x27")
 script = ExtResource("6_17k1e")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_qt3ky")
+volume_db = -10.0
+max_distance = 400.0

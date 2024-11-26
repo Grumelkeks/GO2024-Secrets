@@ -21,4 +21,6 @@ func _ready() -> void:
 	
 	if from_music != null:
 		camera_switch_out.to_music = to_music
+		camera_switch_out.to_num = 1
 		camera_switch_in.to_music = from_music
+		camera_switch_in.to_num = 0
