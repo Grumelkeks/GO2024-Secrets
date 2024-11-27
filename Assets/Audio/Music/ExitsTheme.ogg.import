@@ -14,6 +14,6 @@ dest_files=["res://.godot/imported/ExitsTheme.ogg-dbbc3e84d51eeb6951ffbdf3ff36ce
 
 loop=true
 loop_offset=0.0
-bpm=0.0
-beat_count=0
+bpm=30.0
+beat_count=32
 bar_beats=4

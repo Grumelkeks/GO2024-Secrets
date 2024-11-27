@@ -108,6 +108,7 @@ func _process(delta: float) -> void:
 			set_process(false)
 
 func camera_end_zoom() -> void:
+	MusicPlayer.switch_music("Endings")
 	player = get_parent().get_node("StartArea").get_node("Player")
 	player.get_tree().paused = true
 	transition_camera(player, _current_cam(), end_cam, ZOOM_MULTIPLIER)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bon6etqn3pmrh"]
+
+[ext_resource type="Script" path="res://Entities/PitchedAudioStreamPlayer/pitched_audio_stream_player.gd" id="1_ghsgg"]
+
+[node name="PitchedAudioStreamPlayer" type="AudioStreamPlayer"]
+script = ExtResource("1_ghsgg")
