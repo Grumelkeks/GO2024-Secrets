@@ -7,10 +7,22 @@
 [ext_resource type="Texture2D" uid="uid://ccjempq04chis" path="res://Assets/Globals/ending_storage/Endings/icon_blue.tres" id="6_wgdgb"]
 
 [node name="EndingStorage_UI" type="CanvasLayer"]
+process_mode = 3
 offset = Vector2(-2880, -1620)
 scale = Vector2(4, 4)
 transform = Transform2D(4, 0, 0, 4, -2880, -1620)
 script = ExtResource("1_1jknx")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(1, 1, 1, 0)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0352941, 0.0352941, 0.0392157, 1)
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchors_preset = 8

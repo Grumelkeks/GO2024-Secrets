@@ -1,19 +1,44 @@
 class_name EndingStorageUI
 extends CanvasLayer
 
-@onready var slots: Array = $GridContainer.get_children()
+signal done
 
-var timer : Timer = Timer.new()
+@onready var slots: Array = $GridContainer.get_children()
+@onready var canvas_modulate: CanvasModulate = $CanvasModulate
+
+var tween: Tween
 
 func _ready() -> void:
 	update_slots()
-	add_child(timer)
-	timer.start(5)
-	timer.timeout.connect(_on_time_out)
 
 func update_slots():
 	for i in range(min(EndingStorageGlobal.endings.size(), slots.size())):
 		slots[i].update(EndingStorageGlobal.endings[i])
 
-func _on_time_out():
-	SceneSwitcher.on_ui_finished()
+func fade_in(time: float) -> void:
+	if tween:
+		tween.kill()
+	
+	tween = get_tree().create_tween().bind_node(self).set_ease(Tween.EASE_OUT)
+	
+	tween.tween_property(
+		canvas_modulate, "color", Color(1,1,1,1), time)
+	
+	await(tween.finished)
+	
+	EndingStorageUiGlobal.update_slots()
+	done.emit()
+
+func fade_out(time: float) -> void:
+	if tween:
+		tween.kill()
+	
+	tween = get_tree().create_tween().bind_node(self).set_ease(
+		Tween.EASE_OUT)
+	
+	tween.tween_property(
+		canvas_modulate, "color", Color(1,1,1,0), time)
+	
+	await(tween.finished)
+	
+	done.emit()

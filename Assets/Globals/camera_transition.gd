@@ -110,7 +110,6 @@ func _process(delta: float) -> void:
 func camera_end_zoom() -> void:
 	player = get_parent().get_node("StartArea").get_node("Player")
 	player.get_tree().paused = true
-	
 	transition_camera(player, _current_cam(), end_cam, ZOOM_MULTIPLIER)
 	
 	await(transition_finished)
@@ -118,7 +117,6 @@ func camera_end_zoom() -> void:
 	zoom_wait_timer.start(WAIT_DURATION)
 
 func _on_zoom_wait_timer_timeout() -> void:
-	player.get_tree().paused = false
 	zoom_finished.emit()
 
 func _current_cam() -> Camera2D:

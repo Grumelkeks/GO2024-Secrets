@@ -22,10 +22,6 @@ texture = ExtResource("1_kgyg4")
 position = Vector2(0, -24)
 texture = ExtResource("1_4bje4")
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(0, -13)
-polygon = PackedVector2Array(-22, -12, 22, -12, 22, -35, 8, -35, 5, -13, -5, -13, -8, -35, -22, -35)
-
 [node name="CastleDoor" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 2
@@ -41,5 +37,5 @@ collision_mask = 2
 script = ExtResource("3_usueh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CastleRoof"]
-position = Vector2(0, -28)
+position = Vector2(0, -29)
 shape = SubResource("RectangleShape2D_oul8l")

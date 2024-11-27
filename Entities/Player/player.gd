@@ -19,6 +19,8 @@ var push_force = 20.0
 var platform: StaticBody2D
 var platform_old_pos: float = 0
 
+var menu_openable: bool = true
+
 func _ready() -> void:
 	audio_listener_2d.make_current()
 
@@ -84,3 +86,12 @@ func try_jump() -> void:
 
 func _jump() -> void:
 	velocity.y =  -(stats.BASE_JUMP_SPEED + stats.JUMP_SPEED_INCR * int(abs(velocity.x) / 30))
+
+func menu() -> void:
+	if menu_openable:
+		if EndingStorageUiGlobal.canvas_modulate.color == Color(1,1,1,0):
+			set_process(false)
+			EndingStorageUiGlobal.canvas_modulate.color = Color(1,1,1,1)
+		else:
+			EndingStorageUiGlobal.canvas_modulate.color = Color(1,1,1,0)
+			set_process(true)

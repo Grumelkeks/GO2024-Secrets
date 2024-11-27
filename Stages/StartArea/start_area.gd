@@ -7,4 +7,5 @@ extends Node2D
 func _ready() -> void:
 	if not MusicPlayer.is_current_music(0):
 		MusicPlayer.switch_music(0, music, 1.0)
+	
 	start_camera.make_current()
