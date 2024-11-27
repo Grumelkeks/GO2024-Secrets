@@ -1,16 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://c73f7t3q7amkc"]
+[gd_scene load_steps=7 format=3 uid="uid://c73f7t3q7amkc"]
 
 [ext_resource type="Script" path="res://Assets/Globals/MusicPlayer/music_player.gd" id="1_r67bf"]
 [ext_resource type="AudioStream" uid="uid://66bimkxiavjn" path="res://Assets/Audio/Music/NormalTheme.ogg" id="2_aek6y"]
+[ext_resource type="AudioStream" uid="uid://cj1pn3nh8d285" path="res://Assets/Audio/Music/CaveTheme.ogg" id="3_0d31y"]
+[ext_resource type="AudioStream" uid="uid://dgy2dekdiqel0" path="res://Assets/Audio/Music/AirTheme.ogg" id="4_jda6y"]
+[ext_resource type="AudioStream" uid="uid://clg0odhkisk3h" path="res://Assets/Audio/Music/ExitsTheme.ogg" id="5_ome2s"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_mww3n"]
+clip_count = 4
+clip_0/name = &"Normal"
+clip_0/stream = ExtResource("2_aek6y")
+clip_0/auto_advance = 0
+clip_1/name = &"Cave"
+clip_1/stream = ExtResource("3_0d31y")
+clip_1/auto_advance = 0
+clip_2/name = &"Sky"
+clip_2/stream = ExtResource("4_jda6y")
+clip_2/auto_advance = 0
+clip_3/name = &"Endings"
+clip_3/stream = ExtResource("5_ome2s")
+clip_3/auto_advance = 0
+_transitions = {
+Vector2i(-1, 0): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(-1, 1): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(-1, 2): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(-1, 3): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+}
+}
 
 [node name="MusicPlayer" type="Node"]
 process_mode = 3
 script = ExtResource("1_r67bf")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_aek6y")
-volume_db = -18.0
-bus = &"Music"
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_mww3n")
+autoplay = true
 bus = &"Music"

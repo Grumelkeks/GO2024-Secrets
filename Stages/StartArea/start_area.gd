@@ -5,7 +5,5 @@ extends Node2D
 @onready var music: AudioStream = preload("res://Assets/Audio/Music/NormalTheme.ogg")
 
 func _ready() -> void:
-	if not MusicPlayer.is_current_music(0):
-		MusicPlayer.switch_music(0, music, 1.0)
-	
+	MusicPlayer.switch_music("Normal")
 	start_camera.make_current()

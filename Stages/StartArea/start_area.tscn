@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://23s5awka2xbq"]
+[gd_scene load_steps=49 format=4 uid="uid://23s5awka2xbq"]
 
 [ext_resource type="TileSet" uid="uid://dmmie87461ik" path="res://Stages/Tilesets/BasicGroundTileset/ground_tileset.tres" id="1_4bqmh"]
 [ext_resource type="Script" path="res://Stages/StartArea/start_area.gd" id="1_23pjt"]
@@ -7,10 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://i60t4jpf5571" path="res://Entities/CameraSwitchDoor/camera_switch_door.tscn" id="5_n20fx"]
 [ext_resource type="PackedScene" uid="uid://vqpl81cyrocu" path="res://Entities/Pushable/ExitFlag/exit_flag.tscn" id="7_3lgmw"]
 [ext_resource type="PackedScene" uid="uid://bv67h1xb2oixd" path="res://Entities/InteractionZone/ExitDoor/exit_door.tscn" id="7_j2d5l"]
-[ext_resource type="AudioStream" uid="uid://66bimkxiavjn" path="res://Assets/Audio/Music/NormalTheme.ogg" id="7_x8x5v"]
 [ext_resource type="PackedScene" uid="uid://ddiadwelhud4j" path="res://Entities/Pushable/BigRock/big_rock.tscn" id="8_2wxkk"]
-[ext_resource type="AudioStream" uid="uid://dgy2dekdiqel0" path="res://Assets/Audio/Music/AirTheme.ogg" id="8_ggv3x"]
-[ext_resource type="AudioStream" uid="uid://cj1pn3nh8d285" path="res://Assets/Audio/Music/CaveTheme.ogg" id="8_vuryo"]
 [ext_resource type="PackedScene" uid="uid://bxr34iubue6x1" path="res://Entities/Spike/spike.tscn" id="9_0dul6"]
 [ext_resource type="Texture2D" uid="uid://c7d1m1qqspi26" path="res://Stages/StartArea/Lights/StartLeftTop.png" id="9_ywv04"]
 [ext_resource type="Texture2D" uid="uid://b0yr3jvvjdptv" path="res://Entities/OneWayPlatform/cloud_5x1.png" id="10_t8bgr"]
@@ -185,8 +182,8 @@ scale = Vector2(1, 15)
 from = NodePath("../../Cameras/StartCamera")
 to = NodePath("../../Cameras/BottomCamera")
 multiplier = 2.5
-from_music = ExtResource("7_x8x5v")
-to_music = ExtResource("8_vuryo")
+from_music = "Normal"
+to_music = "Cave"
 
 [node name="UpCameraSwitchDoor" parent="CameraSwitches" node_paths=PackedStringArray("from", "to") instance=ExtResource("5_n20fx")]
 position = Vector2(424, -3.46945e-18)
@@ -195,8 +192,8 @@ scale = Vector2(1, 25.5)
 from = NodePath("../../Cameras/StartCamera")
 to = NodePath("../../Cameras/TopCamera")
 multiplier = 2.5
-from_music = ExtResource("7_x8x5v")
-to_music = ExtResource("8_ggv3x")
+from_music = "Normal"
+to_music = "Sky"
 
 [node name="UpRightCameraSwitchDoor" parent="CameraSwitches" node_paths=PackedStringArray("from", "to") instance=ExtResource("5_n20fx")]
 position = Vector2(896, 0)
@@ -205,8 +202,8 @@ scale = Vector2(1, 4)
 from = NodePath("../../Cameras/StartCamera")
 to = NodePath("../../Cameras/TopCamera")
 multiplier = 4.5
-from_music = ExtResource("7_x8x5v")
-to_music = ExtResource("8_ggv3x")
+from_music = "Normal"
+to_music = "Sky"
 
 [node name="AirObjects" type="Node" parent="."]
 

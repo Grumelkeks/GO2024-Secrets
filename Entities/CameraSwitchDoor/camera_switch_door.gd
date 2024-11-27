@@ -4,8 +4,8 @@ extends Node2D
 @export var to : Camera2D
 @export_range(0.0, 2.0, 0.1, "or_greater") var multiplier : float = 1.0
 
-@export var from_music : AudioStream
-@export var to_music : AudioStream
+@export var from_music : String
+@export var to_music : String
 
 @onready var camera_switch_out: CameraSwitch = $CameraSwitchOut
 @onready var camera_switch_in: CameraSwitch = $CameraSwitchIn
