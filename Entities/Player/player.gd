@@ -10,7 +10,8 @@ extends CharacterBody2D
 var direction : float
 var facing_dir : float = 1
 
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var player_sprite: Sprite2D = $PlayerSprite
+@onready var animation_player: AnimationPlayer = $PlayerSprite/AnimationPlayer
 
 var push_force = 20.0
 
@@ -62,23 +63,24 @@ func _handle_movement(delta : float) -> void:
 		velocity.x = move_toward(velocity.x, 0, stats.STOP_DECEL * delta)
 
 func _handle_animations() -> void:
-	if velocity.x:
-		animated_sprite.play(GlobalNames.animations.walk)
+	
+	if is_on_floor():
+		if velocity.x:
+			animation_player.play("WALK")
+		else:
+			animation_player.play("IDLE")
+		
+		if direction * sign(velocity.x) == -1:
+			animation_player.play("TURN")
 	else:
-		animated_sprite.play(GlobalNames.animations.idle)
-	
-	if direction * sign(velocity.x) == -1:
-		animated_sprite.play(GlobalNames.animations.turn)
-	
+		if velocity.y < 0:
+			animation_player.play("JUMP")
+		else:
+			animation_player.play("FALL")
+			
 	if torch:
 		torch.position.x = facing_dir * 7
-	animated_sprite.flip_h = facing_dir < 0
-	
-	if not is_on_floor():
-		if velocity.y > 0:
-			animated_sprite.play(GlobalNames.animations.fall)
-		else:
-			animated_sprite.play(GlobalNames.animations.jump)
+	player_sprite.flip_h = facing_dir < 0
 
 func try_jump() -> void:
 	if is_on_floor():
