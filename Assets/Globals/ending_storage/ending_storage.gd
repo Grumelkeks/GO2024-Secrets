@@ -7,7 +7,7 @@ extends Node
 @export var torches_ending: Ending = preload("res://Assets/Globals/ending_storage/Endings/CaveTorches/cave_torches.tres")
 var once = true
 
-var campfire_lit = true
+var campfire_lit = false
 
 var count_end = 4
 var rows_done: Array[bool] = [false, false, false]
