@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxqqrevv7x77p"]
+[gd_scene load_steps=4 format=3 uid="uid://cxqqrevv7x77p"]
 
 [ext_resource type="Script" path="res://Assets/Globals/camera_transition.gd" id="1_e3wdl"]
+[ext_resource type="AudioStream" uid="uid://bwcityv54m88l" path="res://Assets/Audio/SFX/Transitions/Whoosh.mp3" id="2_0i5at"]
+[ext_resource type="Script" path="res://Entities/PitchedAudioStreamPlayer/pitched_audio_stream_player.gd" id="3_rjjjg"]
 
 [node name="CameraTransition" type="Node"]
 process_mode = 3
@@ -10,3 +12,7 @@ script = ExtResource("1_e3wdl")
 
 [node name="ZoomWaitTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="WhooshPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0i5at")
+script = ExtResource("3_rjjjg")

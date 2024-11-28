@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://css22a2nom2eo" path="res://Entities/HiddenTileCollider/hidden_tile_collider.tscn" id="5_4e6sq"]
 [ext_resource type="Script" path="res://Entities/PitchedAudioStreamPlayer/pitched_audio_stream_player.gd" id="5_syrx0"]
 [ext_resource type="AudioStream" uid="uid://cw1e4pc6hw03h" path="res://Assets/Audio/SFX/Player/Footstep.mp3" id="5_wtqdg"]
-[ext_resource type="AudioStream" uid="uid://d0qutx76voquj" path="res://Assets/Audio/SFX/Player/Jump.mp3" id="7_n8a24"]
+[ext_resource type="AudioStream" uid="uid://doeqwqsh7bdym" path="res://Assets/Audio/SFX/Player/Jump.wav" id="7_cl5c6"]
 
 [sub_resource type="Resource" id="Resource_uq0s2"]
 script = ExtResource("2_avivl")
@@ -380,13 +380,12 @@ min_pitch = 0.8
 max_pitch = 1.2
 
 [node name="JumpPlayer" type="AudioStreamPlayer" parent="PlayerSprite"]
-stream = ExtResource("7_n8a24")
-volume_db = -4.0
-pitch_scale = 1.16
+stream = ExtResource("7_cl5c6")
+volume_db = -8.0
 bus = &"Sound"
 script = ExtResource("5_syrx0")
-min_pitch = 1.1
-max_pitch = 1.3
+min_pitch = 1.0
+max_pitch = 1.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)

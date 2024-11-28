@@ -61,7 +61,7 @@ func transition_camera(m_player: Player, m_from: Camera2D, m_to: Camera2D, m_mul
 	to.position_smoothing_enabled = false
 	elapsed = 0.0
 	set_process(true)
-	
+	$WhooshPlayer._play()
 
 func interfere_transition(m_from: Camera2D, m_to: Camera2D) -> void:
 	set_process(false)
