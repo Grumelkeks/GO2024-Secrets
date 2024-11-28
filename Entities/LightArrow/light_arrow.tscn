@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ofi8w274hjdc"]
+[gd_scene load_steps=7 format=3 uid="uid://ofi8w274hjdc"]
 
 [ext_resource type="Script" path="res://Entities/LightArrow/light_arrow.gd" id="1_tqg5o"]
-[ext_resource type="Texture2D" uid="uid://cbw5r4a0rnnw8" path="res://Entities/LightArrow/light_arrow.tres" id="2_im7hl"]
 [ext_resource type="Texture2D" uid="uid://bwu8ufdbqfg8n" path="res://Entities/LightArrow/light_arrow.png" id="2_lg7sx"]
+[ext_resource type="PackedScene" uid="uid://bon6etqn3pmrh" path="res://Entities/PitchedAudioStreamPlayer/pitched_audio_stream_player.tscn" id="3_obw35"]
+[ext_resource type="AudioStream" uid="uid://b2b043spi8wal" path="res://Entities/LightArrow/arrow_shoot.mp3" id="4_4pji4"]
+
+[sub_resource type="Gradient" id="Gradient_7rbea"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rojyj"]
+gradient = SubResource("Gradient_7rbea")
+width = 32
+height = 256
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
 
 [node name="LightArrow" type="PathFollow2D"]
 rotation = 3.14159
@@ -10,10 +20,15 @@ rotates = false
 script = ExtResource("1_tqg5o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(16, 1)
+visible = false
 rotation = 3.14159
 texture = ExtResource("2_lg7sx")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, -128)
-texture = ExtResource("2_im7hl")
+position = Vector2(0, -120)
+enabled = false
+range_layer_min = -1
+texture = SubResource("GradientTexture2D_rojyj")
+
+[node name="ArrowShoot" parent="." instance=ExtResource("3_obw35")]
+stream = ExtResource("4_4pji4")

@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://jccu7y4yk0rk"]
+[gd_scene load_steps=5 format=3 uid="uid://jccu7y4yk0rk"]
 
 [ext_resource type="Script" path="res://Assets/Globals/ending_storage/ending_storage.gd" id="1_ho2vs"]
 [ext_resource type="Script" path="res://Assets/Globals/ending_storage/Endings/ending.gd" id="2_ifxvs"]
+[ext_resource type="AudioStream" uid="uid://4r0o1rdx6jxv" path="res://Assets/Audio/SFX/EndingUI/winfantasia-6912.mp3" id="3_4rker"]
+[ext_resource type="Script" path="res://Entities/PitchedAudioStreamPlayer/pitched_audio_stream_player.gd" id="4_pt7jc"]
 
 [node name="EndingStorage" type="Node"]
 process_mode = 3
 script = ExtResource("1_ho2vs")
 endings = Array[ExtResource("2_ifxvs")]([null, null, null, null, null, null, null, null, null, null, null, null])
+
+[node name="AllPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4rker")
+volume_db = 5.0
+bus = &"Sound"
+script = ExtResource("4_pt7jc")

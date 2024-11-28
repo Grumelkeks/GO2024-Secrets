@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://cjmpc6pv5y455"]
+[gd_scene load_steps=39 format=3 uid="uid://cjmpc6pv5y455"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_724r8"]
 [ext_resource type="Texture2D" uid="uid://cmivlp7lj6nvy" path="res://Entities/Player/player.png" id="1_gr1qs"]
 [ext_resource type="Script" path="res://Entities/Player/player_stats.gd" id="2_avivl"]
+[ext_resource type="Resource" uid="uid://dqx447ksl3g27" path="res://Assets/Globals/ending_storage/Endings/AirCoins/air_coins.tres" id="2_byhm5"]
 [ext_resource type="Script" path="res://Entities/Player/player_input.gd" id="4_jclog"]
 [ext_resource type="PackedScene" uid="uid://css22a2nom2eo" path="res://Entities/HiddenTileCollider/hidden_tile_collider.tscn" id="5_4e6sq"]
 [ext_resource type="Script" path="res://Entities/PitchedAudioStreamPlayer/pitched_audio_stream_player.gd" id="5_syrx0"]
@@ -173,6 +174,7 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_xgysa"]
 resource_name = "FALL"
+loop_mode = 1
 step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -208,7 +210,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_sfq7s"]
 resource_name = "JUMP"
 length = 0.80002
-loop_mode = 1
 step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -273,7 +274,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_jsote"]
 resource_name = "TURN"
 length = 0.20002
-loop_mode = 1
 step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -345,6 +345,7 @@ z_index = 5
 collision_layer = 2
 collision_mask = 195
 script = ExtResource("1_724r8")
+ending = ExtResource("2_byhm5")
 stats = SubResource("Resource_uq0s2")
 
 [node name="PlayerInput" type="Node" parent="." node_paths=PackedStringArray("player")]
@@ -372,7 +373,7 @@ libraries = {
 
 [node name="StepPlayer" type="AudioStreamPlayer" parent="PlayerSprite"]
 stream = ExtResource("5_wtqdg")
-volume_db = -3.0
+volume_db = -6.0
 max_polyphony = 2
 bus = &"Sound"
 script = ExtResource("5_syrx0")
@@ -381,7 +382,7 @@ max_pitch = 1.2
 
 [node name="JumpPlayer" type="AudioStreamPlayer" parent="PlayerSprite"]
 stream = ExtResource("7_cl5c6")
-volume_db = -8.0
+volume_db = -24.0
 bus = &"Sound"
 script = ExtResource("5_syrx0")
 min_pitch = 1.0

@@ -76,10 +76,8 @@ func interfere_transition(m_from: Camera2D, m_to: Camera2D) -> void:
 	if m_from.global_position.y > m_from.limit_bottom - HEIGHT/2:
 		from_pos.y = m_from.limit_bottom - HEIGHT/2
 	
-	camera.global_position = from_pos
-	
 	to = m_to
-	elapsed = 1-elapsed
+	elapsed = 1 - elapsed
 	set_process(true)
 
 func _process(delta: float) -> void:
@@ -94,7 +92,7 @@ func _process(delta: float) -> void:
 	if to.global_position.y > to.limit_bottom - HEIGHT/2:
 		to_global_position.y = to.limit_bottom - HEIGHT/2
 	
-	camera.global_position = lerp(from_pos, to_global_position, pow(elapsed, 1.5))
+	camera.global_position = lerp(from_pos, to_global_position, elapsed)
 	camera.zoom = lerp(from.zoom, to.zoom, pow(elapsed, (1.5 + 3*elapsed)))
 	elapsed += (delta * multiplier)
 	

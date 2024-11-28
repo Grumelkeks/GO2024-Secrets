@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://btofah0iwvovk"]
+[gd_scene load_steps=7 format=3 uid="uid://btofah0iwvovk"]
 
 [ext_resource type="Script" path="res://Assets/Globals/ending_storage/ending_storage_ui.gd" id="1_1jknx"]
+[ext_resource type="Texture2D" uid="uid://csk70qfk4ikb2" path="res://Stages/StartArea/background_grid.png" id="2_q2opg"]
 [ext_resource type="PackedScene" uid="uid://d2jgmfcgk1cl0" path="res://Assets/Globals/ending_storage/ending_slot_ui.tscn" id="2_wbidx"]
 [ext_resource type="Texture2D" uid="uid://ccpjomkl7hti2" path="res://Assets/Globals/ending_storage/Endings/icon_green.tres" id="4_ercn2"]
 [ext_resource type="Texture2D" uid="uid://wak5br18hrma" path="res://Assets/Globals/ending_storage/Endings/icon_red.tres" id="5_nqxij"]
@@ -23,6 +24,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0352941, 0.0352941, 0.0392157, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_q2opg")
+stretch_mode = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchors_preset = 8

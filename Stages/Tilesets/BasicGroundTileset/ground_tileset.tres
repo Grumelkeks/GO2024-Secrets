@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dmmie87461ik"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dmmie87461ik"]
 
 [ext_resource type="Texture2D" uid="uid://bmob52dqmx8d" path="res://Stages/Tilesets/BasicGroundTileset/ground_tileset.png" id="1_fyuav"]
+[ext_resource type="Texture2D" uid="uid://crdbe122uh0ly" path="res://Stages/Tilesets/DecoTileset/Decorations.png" id="2_4q0pv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3jnrp"]
 resource_name = "Ground"
@@ -454,6 +455,29 @@ texture = ExtResource("1_fyuav")
 15:3/0/terrain = 3
 15:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iejc7"]
+texture = ExtResource("2_4q0pv")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -466,3 +490,4 @@ terrain_set_0/terrain_2/color = Color(0.501206, 0.0436313, 0.075063, 1)
 terrain_set_0/terrain_3/name = "Clouds"
 terrain_set_0/terrain_3/color = Color(0.0973138, 0.204678, 0.476909, 1)
 sources/0 = SubResource("TileSetAtlasSource_3jnrp")
+sources/1 = SubResource("TileSetAtlasSource_iejc7")

@@ -8,6 +8,7 @@
 
 [node name="Torch" type="PointLight2D"]
 position = Vector2(0, -6)
+range_layer_min = -1
 texture = ExtResource("1_rkhnp")
 script = ExtResource("2_27uuf")
 base_scale = 0.8

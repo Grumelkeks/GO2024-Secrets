@@ -1,16 +1,43 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2jgmfcgk1cl0"]
+[gd_scene load_steps=11 format=3 uid="uid://d2jgmfcgk1cl0"]
 
 [ext_resource type="Script" path="res://Assets/Globals/ending_storage/ending_slot_ui.gd" id="1_ef40e"]
 [ext_resource type="Texture2D" uid="uid://cjg2pya8u2loa" path="res://Assets/Globals/ending_storage/Endings/SlotEmpty.png" id="2_m3rfr"]
 [ext_resource type="Texture2D" uid="uid://coc8o4xfmykps" path="res://Aseprite/Icons/UnlockAnimation.png" id="3_dtatd"]
 [ext_resource type="AudioStream" uid="uid://bu3s1n1561rhq" path="res://Assets/Audio/SFX/EndingUI/AxeHit.mp3" id="4_62ad8"]
 [ext_resource type="Script" path="res://Entities/PitchedAudioStreamPlayer/pitched_audio_stream_player.gd" id="5_m1jfd"]
-[ext_resource type="AudioStream" uid="uid://bv7ijwytcurcv" path="res://Assets/Audio/SFX/EndingUI/RockBreak.mp3" id="5_pdamr"]
+[ext_resource type="AudioStream" uid="uid://n6n2drix0exk" path="res://Assets/Audio/SFX/EndingUI/decidemp3-14575.mp3" id="6_8fvla"]
+
+[sub_resource type="Animation" id="Animation_vywst"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../EndingDisplay:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_x75sc"]
 resource_name = "UNLOCK"
-length = 1.4
-step = 0.1
+length = 1.9
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -23,25 +50,13 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
+tracks/1/path = NodePath("HitPlayer")
 tracks/1/interp = 1
-tracks/1/loop_wrap = false
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HitPlayer")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
@@ -70,51 +85,68 @@ tracks/2/keys = {
 "method": &"_play"
 }]
 }
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BreakPlayer")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(1.2),
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WinPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0],
-"method": &"play"
+"method": &"_play"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../EndingDisplay:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.05, 1.1, 1.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"try_all_rows"
 }]
 }
 
-[sub_resource type="Animation" id="Animation_vywst"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_h1b7a"]
+resource_name = "SCALE"
+length = 2.1
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath("../EndingDisplay:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.3, 0.33, 0.36, 0.77, 0.8, 0.83, 1.17, 1.2, 1.23, 1.67, 1.7, 1.73),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cc6l6"]
 _data = {
 "RESET": SubResource("Animation_vywst"),
+"SCALE": SubResource("Animation_h1b7a"),
 "UNLOCK": SubResource("Animation_x75sc")
 }
 
@@ -161,7 +193,11 @@ libraries = {
 [node name="HitPlayer" type="AudioStreamPlayer" parent="CenterContainer/Unlock"]
 stream = ExtResource("4_62ad8")
 max_polyphony = 2
+bus = &"Sound"
 script = ExtResource("5_m1jfd")
 
-[node name="BreakPlayer" type="AudioStreamPlayer" parent="CenterContainer/Unlock"]
-stream = ExtResource("5_pdamr")
+[node name="WinPlayer" type="AudioStreamPlayer" parent="CenterContainer/Unlock"]
+stream = ExtResource("6_8fvla")
+volume_db = -5.0
+bus = &"Sound"
+script = ExtResource("5_m1jfd")

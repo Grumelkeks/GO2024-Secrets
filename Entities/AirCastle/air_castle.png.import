@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjl7an5vlm55t"
-path="res://.godot/imported/cave_campfire.png-708d751b2627d49dbef869491b498711.ctex"
+uid="uid://cr184aix2aot1"
+path="res://.godot/imported/air_castle.png-eae654f6afb627b6e6282f817fad198a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Globals/ending_storage/Endings/CaveCampfire/cave_campfire.png"
-dest_files=["res://.godot/imported/cave_campfire.png-708d751b2627d49dbef869491b498711.ctex"]
+source_file="res://Entities/AirCastle/air_castle.png"
+dest_files=["res://.godot/imported/air_castle.png-eae654f6afb627b6e6282f817fad198a.ctex"]
 
 [params]
 

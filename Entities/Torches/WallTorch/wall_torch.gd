@@ -25,7 +25,7 @@ func _ready() -> void:
 
 func _perform_action(player: Player) -> void:
 	if player.torch != null:
-		EndingStorageGlobal.lit_torches.append(self.name)
+		EndingStorageGlobal.torch_light_up(self)
 		_action()
 
 func _action() -> void:

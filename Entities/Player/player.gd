@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+@export var ending: Ending
+
 @export var lights: Node
 
 @export var stats : PlayerStats
@@ -21,6 +23,8 @@ var platform: StaticBody2D
 var platform_old_pos: float = 0
 
 var menu_openable: bool = true
+
+var coins = 0
 
 func _ready() -> void:
 	audio_listener_2d.make_current()
@@ -48,6 +52,10 @@ func _process(delta: float) -> void:
 			else:
 				global_position.x += platform.global_position.x - platform_old_pos
 				platform_old_pos = platform.global_position.x
+	
+	if coins >= 6:
+		EndingStorageGlobal.endings[ending.storage_pos] = ending
+		CameraTransition.camera_end_zoom()
 
 func _apply_gravity(delta : float) -> void:
 	if not is_on_floor() and Input.is_action_pressed(GlobalNames.actions.jump):
@@ -93,7 +101,9 @@ func menu() -> void:
 	if menu_openable:
 		if EndingStorageUiGlobal.canvas_modulate.color == Color(1,1,1,0):
 			set_process(false)
+			MusicPlayer.switch_music("Endings")
 			EndingStorageUiGlobal.canvas_modulate.color = Color(1,1,1,1)
 		else:
+			MusicPlayer.switch_music("Normal")
 			EndingStorageUiGlobal.canvas_modulate.color = Color(1,1,1,0)
 			set_process(true)

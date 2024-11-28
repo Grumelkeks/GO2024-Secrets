@@ -29,7 +29,6 @@ EndingStorageUiGlobal="*res://Assets/Globals/ending_storage/ending_storage_ui.ts
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [input]
 

@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://b6n7qkbatwtrp"]
+
+[ext_resource type="Script" path="res://Entities/InteractionZone/Coin/coin.gd" id="1_h2cwt"]
+[ext_resource type="Texture2D" uid="uid://bvfwbxl5wpxnv" path="res://Entities/InteractionZone/Coin/coin.png" id="1_msq8j"]
+[ext_resource type="AudioStream" uid="uid://bfww7edwaeeju" path="res://Entities/InteractionZone/Coin/pickupCoin.wav" id="3_riapa"]
+[ext_resource type="Script" path="res://Entities/PitchedAudioStreamPlayer/pitched_audio_stream_player.gd" id="4_sp7mu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giy6w"]
+atlas = ExtResource("1_msq8j")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig1ks"]
+atlas = ExtResource("1_msq8j")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1m7v"]
+atlas = ExtResource("1_msq8j")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4p7x"]
+atlas = ExtResource("1_msq8j")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6p0q4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giy6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig1ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1m7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4p7x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nlc5m"]
+radius = 8.0
+
+[node name="Coin" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_h2cwt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6p0q4")
+autoplay = "default"
+frame = 3
+frame_progress = 0.033661
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nlc5m")
+
+[node name="pickupCoin" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_riapa")
+volume_db = -5.0
+bus = &"Sound"
+script = ExtResource("4_sp7mu")

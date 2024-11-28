@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=3 format=3 uid="uid://dqx447ksl3g27"]
+
+[ext_resource type="Script" path="res://Assets/Globals/ending_storage/Endings/ending.gd" id="1_2qtpa"]
+[ext_resource type="Texture2D" uid="uid://c0acth8x0bptd" path="res://Assets/Globals/ending_storage/Endings/AirCoins/air_coins.png" id="2_maxjw"]
+
+[resource]
+script = ExtResource("1_2qtpa")
+name = "Air Coins"
+storage_pos = 11
+texture = ExtResource("2_maxjw")

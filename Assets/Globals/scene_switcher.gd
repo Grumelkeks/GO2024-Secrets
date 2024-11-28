@@ -6,7 +6,7 @@ extends Node
 var ending_storage_ui: EndingStorageUI
 
 const FADE_TIME: float = 1.0
-const ENDING_UI_TIME: float = 3.0
+const ENDING_UI_TIME: float = 4.0
 var timer : Timer = Timer.new()
 
 func _ready() -> void:
@@ -26,6 +26,7 @@ func _on_zoom_finished() -> void:
 	timer.start(ENDING_UI_TIME)
 
 func on_ui_finished() -> void:
+	MusicPlayer.switch_music("Normal")
 	EndingStorageUiGlobal.fade_out(FADE_TIME)
 
 func _on_timer_timeout():

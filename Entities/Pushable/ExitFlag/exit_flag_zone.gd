@@ -17,11 +17,12 @@ func _perform_action(player: Player) -> void:
 	player.set_process(false)
 	
 	flag.global_position.y = height
+	
 	if flag.global_position.x < player.global_position.x:
-		player.get_node("AnimatedSprite2D").flip_h = true
+		player.player_sprite.flip_h = true
 		flag.flip_h = true
 	else:
-		player.get_node("AnimatedSprite2D").flip_h = false
+		player.player_sprite.flip_h = false
 	
 	if(tween):
 		tween.kill()

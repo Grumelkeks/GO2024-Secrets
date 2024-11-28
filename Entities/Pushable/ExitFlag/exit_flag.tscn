@@ -25,7 +25,7 @@ texture = ExtResource("1_lno82")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="." index="2"]
 position = Vector2(0, -8)
-polygon = PackedVector2Array(-4, 7, 0, 8, 4, 7, 8, 4, 8, -4, 4, -8, -4, -8, -8, -4, -8, 4)
+polygon = PackedVector2Array(-4, 7, 0, 8, 4, 7, 7, 4, 7, -4, 4, -8, -4, -8, -7, -4, -7, 4)
 
 [node name="ExitFlagZone" type="Area2D" parent="." index="3" node_paths=PackedStringArray("flag")]
 collision_layer = 32

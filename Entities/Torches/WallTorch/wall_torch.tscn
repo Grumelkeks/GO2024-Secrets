@@ -69,6 +69,7 @@ shape = SubResource("CircleShape2D_hmo1v")
 [node name="TorchLight" type="PointLight2D" parent="."]
 position = Vector2(6, 0)
 color = Color(1, 1, 1, 0)
+range_layer_min = -1
 texture = SubResource("GradientTexture2D_c2x27")
 script = ExtResource("6_17k1e")
 
