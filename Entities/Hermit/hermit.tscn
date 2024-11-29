@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://cvbnjpi5ugvl"]
+
+[ext_resource type="Texture2D" uid="uid://wg2rjjgn2g1r" path="res://Entities/Hermit/Hermit.png" id="1_ts31b"]
+[ext_resource type="Script" path="res://Entities/Hermit/hermit.gd" id="2_0306t"]
+[ext_resource type="PackedScene" uid="uid://j346j8mun74a" path="res://Entities/Hermit/HermitSpeechBubble/speech_bubble.tscn" id="2_et2vv"]
+[ext_resource type="Script" path="res://Entities/Hermit/hermit_interaction_zone.gd" id="3_o026i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oog4g"]
+atlas = ExtResource("1_ts31b")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k4i8"]
+atlas = ExtResource("1_ts31b")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6iusc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oog4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k4i8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_la88m"]
+radius = 19.0
+
+[node name="Hermit" type="AnimatedSprite2D"]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_6iusc")
+autoplay = "default"
+frame_progress = 0.870843
+script = ExtResource("2_0306t")
+
+[node name="SpeechBubble" parent="." instance=ExtResource("2_et2vv")]
+position = Vector2(0, -12)
+
+[node name="InteractionZone" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("3_o026i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone"]
+shape = SubResource("CircleShape2D_la88m")
