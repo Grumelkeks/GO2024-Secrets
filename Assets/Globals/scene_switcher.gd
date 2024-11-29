@@ -16,7 +16,8 @@ func _on_zoom_finished() -> void:
 	EndingStorageUiGlobal.fade_in(FADE_TIME)
 	
 	await(EndingStorageUiGlobal.done)
-	
+
+	AudioServer.set_bus_effect_enabled(2,0, false)
 	get_tree().reload_current_scene()
 	get_tree().paused = false
 	

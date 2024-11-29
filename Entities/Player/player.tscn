@@ -373,7 +373,7 @@ libraries = {
 
 [node name="StepPlayer" type="AudioStreamPlayer" parent="PlayerSprite"]
 stream = ExtResource("5_wtqdg")
-volume_db = -6.0
+volume_db = -8.0
 max_polyphony = 2
 bus = &"Sound"
 script = ExtResource("5_syrx0")
@@ -382,7 +382,7 @@ max_pitch = 1.2
 
 [node name="JumpPlayer" type="AudioStreamPlayer" parent="PlayerSprite"]
 stream = ExtResource("7_cl5c6")
-volume_db = -24.0
+volume_db = -26.0
 bus = &"Sound"
 script = ExtResource("5_syrx0")
 min_pitch = 1.0

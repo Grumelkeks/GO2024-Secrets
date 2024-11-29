@@ -2,6 +2,7 @@
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_y8o3p"]
 resource_name = "Reverb"
+damping = 0.7
 
 [resource]
 bus/0/volume_db = 0.00282288

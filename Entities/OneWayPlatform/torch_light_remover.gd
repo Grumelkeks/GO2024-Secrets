@@ -9,9 +9,11 @@ func _ready() -> void:
 		down = true
 
 func _perform_action(player: Player) -> void:
-	if player.torch != null:
-		if not down:
+	if not down:
+		AudioServer.set_bus_effect_enabled(2,0, false)
+		if player.torch != null:
 			player.torch.enabled = false
-			return
-		
-		player.torch.enabled = true
+	else:
+		AudioServer.set_bus_effect_enabled(2,0, true)
+		if player.torch != null:
+			player.torch.enabled = true
