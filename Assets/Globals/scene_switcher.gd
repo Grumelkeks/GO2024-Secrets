@@ -1,8 +1,5 @@
 extends Node
 
-@onready var start_area_scene = load("res://Stages/StartArea/start_area.tscn")
-@onready var ending_storage_ui_scene = load("res://Assets/Globals/ending_storage/ending_storage_ui.tscn")
-
 var ending_storage_ui: EndingStorageUI
 
 const FADE_TIME: float = 1.0
