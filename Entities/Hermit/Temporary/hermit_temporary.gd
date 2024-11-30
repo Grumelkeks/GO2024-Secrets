@@ -5,10 +5,11 @@ extends Hermit
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var dialogue := [
-	"Welcome Traveller ...",
+	"Welcome Traveller...",
 	"There are still 11 more endings hidden here",
 	"If you need a hint, you can talk to me anytime",
 	"You just need to find me...",
+	"Oh, and if you want to see the endings menu, press [Tab]"
 ]
 
 func _ready() -> void:

@@ -1,3 +1,9 @@
+#status-progress {
+	bottom: 12.8%;
+	width: 50%;
+	margin: 0 auto;
+}
+
 /* Add custom styles for the progress bar */
 progress {
 	appearance: none;

@@ -35,6 +35,7 @@ var text_dict := {
 var secret_text = [
 	"I'm just a hermit why are you questioning me?",
 	"It's been so long since I've talked to someone...",
+	"I still remember the time when I travelled these lands",
 	"Need any more hints?"
 ]
 
@@ -77,9 +78,9 @@ func load_endings():
 	active_endings.shuffle()
 
 func speak():
-	if talk_count == 0:
-		show_text(text_dict["general"])
-	elif talk_count % 4 == 0:
+	#if talk_count == 0:
+		#show_text(text_dict["general"])
+	if talk_count % 4 == 0:
 		show_text(secret_text.pick_random())
 	else:
 		show_text(text_dict[active_endings[endings_position % active_endings.size()]])
