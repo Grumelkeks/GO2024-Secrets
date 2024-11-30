@@ -57,9 +57,32 @@ body {
 }
 
 #status-progress {
-	bottom: 10%;
+	bottom: 12.8%;
 	width: 50%;
 	margin: 0 auto;
+}
+
+/* Add custom styles for the progress bar */
+progress {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 100%;
+	height: 12px;
+	overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+	background-color: #3a3a3a; /* Background color of the progress bar */
+}
+
+progress::-webkit-progress-value {
+	background-color: #daff7d; /* Foreground (filled part) color */
+	transition: width 0.2s; /* Optional: Add smooth animation for progress */
+}
+
+progress::-moz-progress-bar {
+	background-color: #daff7d; /* Foreground color for Firefox */
 }
 
 #status-notice {
@@ -97,7 +120,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":6415968,"index.wasm":43016933},"focusCanvas":true,"gdextensionLibs":[]};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":6417568,"index.wasm":43016933},"focusCanvas":true,"gdextensionLibs":[]};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 

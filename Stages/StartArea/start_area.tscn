@@ -309,7 +309,7 @@ texture = ExtResource("18_s05en")
 position = Vector2(-376, -48)
 
 [node name="ExitFlag" parent="AirObjects/Exits/AirCastle" instance=ExtResource("7_3lgmw")]
-position = Vector2(0, -48)
+position = Vector2(0, -64)
 collision_mask = 3
 max_contacts_reported = 2
 
@@ -606,7 +606,7 @@ texture = ExtResource("35_pd7cj")
 stretch_mode = 1
 
 [node name="HermitTemporary" parent="." instance=ExtResource("45_bol5k")]
-position = Vector2(464, 232)
+position = Vector2(464, 231)
 
 [editable path="AirObjects/OneWayPlatform/OneWayPlatform"]
 [editable path="AirObjects/Exits/ExitDoorRight"]
