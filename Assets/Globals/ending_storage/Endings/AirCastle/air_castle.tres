@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_3udx6")
 name = "AirCastle"
-storage_pos = 9
+storage_pos = 11
 texture = ExtResource("2_y3qbt")

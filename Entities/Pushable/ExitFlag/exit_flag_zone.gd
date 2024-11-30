@@ -40,5 +40,9 @@ func _perform_action(player: Player) -> void:
 	
 	await(tween.finished)
 	
-	EndingStorageGlobal.endings[ending.storage_pos] = ending
-	CameraTransition.camera_end_zoom()
+	if ending == null:
+		push_warning("Ending null! May be unintentional")
+		CameraTransition.end_area_camera_zoom()
+	else:
+		EndingStorageGlobal.endings[ending.storage_pos] = ending
+		CameraTransition.camera_end_zoom()

@@ -118,10 +118,16 @@ func camera_end_zoom() -> void:
 func _on_zoom_wait_timer_timeout() -> void:
 	zoom_finished.emit()
 
-func _current_cam() -> Camera2D:
+func end_area_camera_zoom() -> void:
+	player = get_parent().get_node("EndArea").get_node("Player")
+	transition_camera(player, _current_cam("EndArea"), end_cam, ZOOM_MULTIPLIER)
+	
+	await(transition_finished)
+
+func _current_cam(area: StringName = "StartArea") -> Camera2D:
 	var cam: Camera2D
 	
-	var cameras: Node = get_parent().get_node("StartArea").get_node("Cameras")
+	var cameras: Node = get_parent().get_node(NodePath(area)).get_node("Cameras")
 	for child: Camera2D in cameras.get_children():
 		if child.name == "EndCamera":
 			end_cam = child

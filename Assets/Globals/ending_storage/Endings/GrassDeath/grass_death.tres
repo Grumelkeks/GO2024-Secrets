@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_0tpg7")
 name = "Grass Death"
-storage_pos = 1
+storage_pos = 3
 texture = ExtResource("2_vpmyw")

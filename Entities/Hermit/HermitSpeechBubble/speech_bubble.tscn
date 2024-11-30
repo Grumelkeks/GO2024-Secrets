@@ -38,5 +38,6 @@ autowrap_mode = 2
 
 [node name="TextPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_hhwjl")
+volume_db = -4.0
 max_polyphony = 2
 script = ExtResource("4_gyv33")

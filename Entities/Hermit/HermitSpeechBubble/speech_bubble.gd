@@ -10,7 +10,6 @@ func show_text(text : String):
 	if not already_active:
 		already_active = true
 		self.modulate = Color(1, 1, 1, 1)
-		var label_text = ""
 		label.text = preamble
 		var words : Array = text.split(" ")
 		label.text += words[0]

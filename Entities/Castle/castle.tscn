@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4o1xiilvf7uy"]
+[gd_scene load_steps=8 format=3 uid="uid://b4o1xiilvf7uy"]
 
 [ext_resource type="Texture2D" uid="uid://dfc2wgkyn0m2m" path="res://Entities/Castle/castle.png" id="1_4bje4"]
 [ext_resource type="Script" path="res://Entities/Castle/castle_door.gd" id="1_22ell"]
 [ext_resource type="Texture2D" uid="uid://xjb8b785fflm" path="res://Entities/Castle/castle_roof.png" id="1_kgyg4"]
 [ext_resource type="Script" path="res://Entities/Castle/castle_roof.gd" id="3_usueh"]
+[ext_resource type="Resource" uid="uid://drwn5fh8lw3js" path="res://Assets/Globals/ending_storage/Endings/AirCastle/air_castle.tres" id="5_7eyh8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3olov"]
 size = Vector2(8, 23)
@@ -35,6 +36,7 @@ shape = SubResource("RectangleShape2D_3olov")
 collision_layer = 32
 collision_mask = 2
 script = ExtResource("3_usueh")
+ending = ExtResource("5_7eyh8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CastleRoof"]
 position = Vector2(0, -29)

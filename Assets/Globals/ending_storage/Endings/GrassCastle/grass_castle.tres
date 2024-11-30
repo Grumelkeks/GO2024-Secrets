@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_upsj3")
 name = "Grass Castle"
-storage_pos = 3
+storage_pos = 1
 texture = ExtResource("2_hqh1f")

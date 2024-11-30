@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_2qtpa")
 name = "Air Coins"
-storage_pos = 11
+storage_pos = 9
 texture = ExtResource("2_maxjw")

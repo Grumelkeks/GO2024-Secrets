@@ -4,5 +4,9 @@ extends InteractionZone
 @export var ending: Ending
 
 func _perform_action(_player: Player):
-	EndingStorageGlobal.endings[ending.storage_pos] = ending
-	CameraTransition.camera_end_zoom()
+	if ending == null:
+		push_warning("Ending null! May be unintentional")
+		CameraTransition.end_area_camera_zoom()
+	else:
+		EndingStorageGlobal.endings[ending.storage_pos] = ending
+		CameraTransition.camera_end_zoom()

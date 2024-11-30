@@ -29,8 +29,6 @@ func torch_light_up(torch: WallTorch):
 		CameraTransition.camera_end_zoom()
 
 func full_row():
-	var count = 0
-	
 	for i in range(3):
 		_check_all(i*4)
 
@@ -49,3 +47,11 @@ func _check_all(row: int):
 	
 	if count >= count_end:
 		count_end += 4
+
+func get_num_of_endings() -> int:
+	var count = 0
+	for i in endings.size():
+		if endings[i] != null:
+			count += 1
+	
+	return count

@@ -3,9 +3,9 @@ extends AnimatedSprite2D
 @onready var speech_bubble: Sprite2D = $SpeechBubble
 
 var endings := [
-	"flags", "death", "grassDoor", "castle",
+	"flags", "castle", "grassDoor", "death",
 	"flags", "torches", "caveDoor", "roast",
-	"flags", "castleTop", "airDoor", "coins"
+	"flags", "coins", "airDoor", "castleTop"
 ]
 
 var active_endings : Array = []

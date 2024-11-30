@@ -1,4 +1,4 @@
-extends "res://Entities/InteractionZone/interaction_zone.gd"
+extends InteractionZone
 
 func _perform_action(_player: Player) -> void:
 	get_parent().ghost_appear()
