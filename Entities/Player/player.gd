@@ -107,3 +107,6 @@ func menu() -> void:
 			MusicPlayer.switch_music("Normal")
 			EndingStorageUiGlobal.canvas_modulate.color = Color(1,1,1,0)
 			set_process(true)
+
+func set_input(boolean : bool):
+	$PlayerInput.set_process(boolean)

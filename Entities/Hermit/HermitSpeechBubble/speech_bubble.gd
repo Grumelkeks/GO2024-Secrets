@@ -22,7 +22,7 @@ func show_text(text : String):
 			text_player._play()
 			await get_tree().create_timer(0.3).timeout
 		await get_tree().create_timer(1).timeout
-		fade_out()
+		await fade_out()
 
 func fade_out():
 	var tweener : Tween = get_tree().create_tween()
