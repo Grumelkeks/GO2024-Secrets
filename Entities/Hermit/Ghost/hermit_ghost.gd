@@ -1,4 +1,4 @@
-extends "res://Entities/Hermit/hermit.gd"
+extends Hermit
 
 var dialogue := [
 	"So you did it...",

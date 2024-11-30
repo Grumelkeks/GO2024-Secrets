@@ -13,6 +13,8 @@ config_version=5
 config/name="GO2024-Secrets"
 run/main_scene="res://Stages/StartArea/start_area.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/image="res://Stages/SplashScreen/SplashScreen.png"
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [autoload]

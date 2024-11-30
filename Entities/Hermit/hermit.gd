@@ -1,4 +1,5 @@
 extends AnimatedSprite2D
+class_name Hermit
 
 @onready var speech_bubble: Sprite2D = $SpeechBubble
 

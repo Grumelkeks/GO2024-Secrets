@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func ghost_appear():
 	player.direction = 0
+	player.velocity.x /= 2
 	player.set_input(false)
 	animation_player.play("GhostAppear")
 	whoosh_player._play()
@@ -29,6 +30,7 @@ func ghost_appear():
 	whoosh_player._play()
 	await animation_player.animation_finished
 	player.set_input(true)
+	
 	if tween:
 		tween.kill()
 	
