@@ -1,10 +1,12 @@
 extends Hermit
 
 var dialogue := [
-	"So you did it...",
+	"So you did it, my boy...",
 	"You found every ending",
 	"You can be proud of yourself",
-	
+	"... What's the reward, you're asking?",
+	"The experience, that's the reward",
+	"Now go, go and find yourself...",
 ]
 
 func _ready() -> void:

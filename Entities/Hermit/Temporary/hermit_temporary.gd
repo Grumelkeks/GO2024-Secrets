@@ -6,12 +6,9 @@ extends Hermit
 
 var dialogue := [
 	"Welcome Traveller ...",
-	"I see you found one ending to this story already...",
-	"Find all 12 to be rewarded...",
+	"There are still 11 more endings hidden here",
 	"If you need a hint, you can talk to me anytime",
 	"You just need to find me...",
-	"Just remember ...",
-	"Not everything is as it seems"
 ]
 
 func _ready() -> void:
@@ -23,8 +20,8 @@ func speak():
 	interaction_zone.set_deferred("monitoring", false)
 	while true:
 		if talk_count < dialogue.size():
-			await  get_tree().create_timer(0.4).timeout
 			await show_text(dialogue[talk_count])
+			await  get_tree().create_timer(0.2).timeout
 			talk_count += 1
 		else:
 			animation_player.play("FADE_OUT")

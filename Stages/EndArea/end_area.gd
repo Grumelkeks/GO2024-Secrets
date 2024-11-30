@@ -23,7 +23,8 @@ func _ready() -> void:
 	CameraTransition.end_area_zoom_finished.connect(_on_end_zoom_finished)
 	clouds.process_mode = Node.PROCESS_MODE_DISABLED
 	clouds.modulate = Color(1,1,1,0)
-		
+	MusicPlayer.switch_music("Ending")
+
 func ghost_appear():
 	player.direction = 0
 	player.velocity.x /= 2
