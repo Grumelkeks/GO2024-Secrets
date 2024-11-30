@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://23s5awka2xbq"]
+[gd_scene load_steps=60 format=4 uid="uid://23s5awka2xbq"]
 
 [ext_resource type="TileSet" uid="uid://dmmie87461ik" path="res://Stages/Tilesets/BasicGroundTileset/ground_tileset.tres" id="1_4bqmh"]
 [ext_resource type="Script" path="res://Stages/StartArea/start_area.gd" id="1_23pjt"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://b03f7ep582248" path="res://Entities/Pushable/ExitFlag/cave_flag.png" id="18_7ix7t"]
 [ext_resource type="Texture2D" uid="uid://bq23786f0r6v5" path="res://Entities/Pushable/ExitFlag/grass_flag.png" id="18_cqd6g"]
 [ext_resource type="Texture2D" uid="uid://du5268m7ecsa8" path="res://Entities/InteractionZone/ExitDoor/air_door.png" id="18_s05en"]
+[ext_resource type="Script" path="res://Entities/Pushable/BigRock/big_rock.gd" id="19_5xcwa"]
 [ext_resource type="Texture2D" uid="uid://b51tn8pdo7aw1" path="res://Entities/Pushable/ExitFlag/grass_pole.png" id="19_y7uo3"]
 [ext_resource type="Texture2D" uid="uid://bfc1msf2gepax" path="res://Entities/Hermit/HermitHut.png" id="20_snfof"]
 [ext_resource type="Texture2D" uid="uid://cfdsexafukni1" path="res://Entities/InteractionZone/ExitDoor/grass_door.png" id="24_76hrh"]
@@ -344,6 +345,7 @@ position = Vector2(648, -216)
 
 [node name="BigRock" parent="GrassObjects" instance=ExtResource("8_2wxkk")]
 position = Vector2(312, 240)
+script = ExtResource("19_5xcwa")
 
 [node name="Hermit" parent="GrassObjects" instance=ExtResource("41_e4t5t")]
 position = Vector2(-384, 167)

@@ -16,6 +16,8 @@ var rows_done: Array[bool] = [false, false, false]
 @export var coins_ending: Ending = preload("res://Assets/Globals/ending_storage/Endings/AirCoins/air_coins.tres")
 @onready var coins: Array[StringName]
 
+var big_rock_pos:Vector2 = Vector2(312, 240)
+
 func coin_pickup(coin: Coin) -> void:
 	coins.append(coin.name)
 	if coins.size() >= 6:

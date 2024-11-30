@@ -44,6 +44,8 @@ func _process(delta: float) -> void:
 		var collider = c.get_collider()
 		if collider is Pushable:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+			if collider is BigRock:
+				EndingStorageGlobal.big_rock_pos = collider.global_position
 		if collider.name == "Platform":
 			if platform != collider:
 				platform = collider

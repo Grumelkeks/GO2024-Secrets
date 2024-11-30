@@ -1,21 +1,25 @@
-[gd_scene load_steps=12 format=3 uid="uid://jccu7y4yk0rk"]
+[gd_scene load_steps=16 format=3 uid="uid://jccu7y4yk0rk"]
 
 [ext_resource type="Script" path="res://Assets/Globals/ending_storage/ending_storage.gd" id="1_ho2vs"]
 [ext_resource type="Script" path="res://Assets/Globals/ending_storage/Endings/ending.gd" id="2_ifxvs"]
 [ext_resource type="AudioStream" uid="uid://4r0o1rdx6jxv" path="res://Assets/Audio/SFX/EndingUI/winfantasia-6912.mp3" id="3_4rker"]
 [ext_resource type="Resource" uid="uid://c5o3n55vheuqh" path="res://Assets/Globals/ending_storage/Endings/GrassFlag/grass_flag.tres" id="3_d74xb"]
+[ext_resource type="Resource" uid="uid://byqoggd7cnvyd" path="res://Assets/Globals/ending_storage/Endings/GrassCastle/grass_castle.tres" id="4_ov5bf"]
 [ext_resource type="Script" path="res://Entities/PitchedAudioStreamPlayer/pitched_audio_stream_player.gd" id="4_pt7jc"]
+[ext_resource type="Resource" uid="uid://csyphk2qvo6j" path="res://Assets/Globals/ending_storage/Endings/GrassDeath/grass_death.tres" id="5_rmotj"]
 [ext_resource type="Resource" uid="uid://bv06qqcajtfqj" path="res://Assets/Globals/ending_storage/Endings/CaveFlag/cave_flag.tres" id="6_jj04u"]
 [ext_resource type="Resource" uid="uid://cauubwtma4xcs" path="res://Assets/Globals/ending_storage/Endings/CaveTorches/cave_torches.tres" id="7_r36nc"]
 [ext_resource type="Resource" uid="uid://bq7kmmpq7jxwq" path="res://Assets/Globals/ending_storage/Endings/CaveHiddenDoor/cave_hidden_door.tres" id="8_c4ddv"]
 [ext_resource type="Resource" uid="uid://bao4icum4yjjw" path="res://Assets/Globals/ending_storage/Endings/CaveRoast/cave_roast.tres" id="9_k8h7p"]
 [ext_resource type="Resource" uid="uid://dx6wqkexsttt8" path="res://Assets/Globals/ending_storage/Endings/AirFlag/air_flag.tres" id="10_g3fbe"]
+[ext_resource type="Resource" uid="uid://drwn5fh8lw3js" path="res://Assets/Globals/ending_storage/Endings/AirCastle/air_castle.tres" id="11_08ih0"]
 [ext_resource type="Resource" uid="uid://bhytx1xg1lsm1" path="res://Assets/Globals/ending_storage/Endings/AirHiddenDoor/air_hidden_door.tres" id="12_dqe67"]
+[ext_resource type="Resource" uid="uid://dqx447ksl3g27" path="res://Assets/Globals/ending_storage/Endings/AirCoins/air_coins.tres" id="13_58spj"]
 
 [node name="EndingStorage" type="Node"]
 process_mode = 3
 script = ExtResource("1_ho2vs")
-endings = Array[ExtResource("2_ifxvs")]([ExtResource("3_d74xb"), null, null, null, ExtResource("6_jj04u"), ExtResource("7_r36nc"), ExtResource("8_c4ddv"), ExtResource("9_k8h7p"), ExtResource("10_g3fbe"), null, ExtResource("12_dqe67"), null])
+endings = Array[ExtResource("2_ifxvs")]([ExtResource("3_d74xb"), ExtResource("4_ov5bf"), null, ExtResource("5_rmotj"), ExtResource("6_jj04u"), ExtResource("7_r36nc"), ExtResource("8_c4ddv"), ExtResource("9_k8h7p"), ExtResource("10_g3fbe"), ExtResource("13_58spj"), ExtResource("12_dqe67"), ExtResource("11_08ih0")])
 
 [node name="AllPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_4rker")
