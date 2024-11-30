@@ -16,16 +16,16 @@ var text_dict := {
 	"general" : "Press [Tab] to show the endings menu",
 	"flags" : "There's a flag to climb in all 3 areas...",
 	# Normal
-	"castle" : "Is there really no way to get into the castle...",
+	"castle" : "That flag pole look oddly pushable...",
 	"death" : "The sharpest path may lead to freedom...",
 	"grassDoor" : "I'm sure you can get to the door up there...",
 	# Cave
 	"torches" : "The light will guide you to an end...",
-	"roast" : "Cold. Warm. Warmer. Scorching. Burning...",
+	"roast" : "Don't stand by the fire for too long!",
 	"caveDoor" : "Squeeze through a gap in the cave to find a door...",
 	# Air
 	"castleTop" : "Ascend to the sky, then take the plunge...",
-	"coins" : "Collecting the stars might lead you somewhere...",
+	"coins" : "Everything can be bought... even an ending",
 	"airDoor" : "I heard there's a door hidden somewhere in the clouds...",
 	# Extras
 	"caveLocked" : "Have you found a way into the underground yet?",
@@ -36,7 +36,7 @@ var secret_text = [
 	"I'm just a hermit why are you questioning me?",
 	"It's been so long since I've talked to someone...",
 	"I still remember the time when I travelled these lands",
-	"Need any more hints?"
+	"Need any more hints?",
 ]
 
 var talk_count = 0
@@ -78,9 +78,7 @@ func load_endings():
 	active_endings.shuffle()
 
 func speak():
-	#if talk_count == 0:
-		#show_text(text_dict["general"])
-	if talk_count % 4 == 0:
+	if (talk_count + 1) % 4 == 0:
 		show_text(secret_text.pick_random())
 	else:
 		show_text(text_dict[active_endings[endings_position % active_endings.size()]])

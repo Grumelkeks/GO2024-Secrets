@@ -1,7 +1,7 @@
 extends Hermit
 
 var dialogue := [
-	"So you did it, my boy...",
+	"So you did it...",
 	"You found every ending",
 	"You can be proud of yourself",
 	"... What's the reward, you're asking?",
