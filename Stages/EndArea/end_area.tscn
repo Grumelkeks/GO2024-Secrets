@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=4 uid="uid://ox8uscgnfs8d"]
+[gd_scene load_steps=25 format=4 uid="uid://ox8uscgnfs8d"]
 
 [ext_resource type="Script" path="res://Stages/EndArea/end_area.gd" id="1_3au4c"]
 [ext_resource type="TileSet" uid="uid://dmmie87461ik" path="res://Stages/Tilesets/BasicGroundTileset/ground_tileset.tres" id="1_605ti"]
+[ext_resource type="PackedScene" uid="uid://drh4ogecomr7e" path="res://Entities/MovablePlatform/movable_platform.tscn" id="3_3rhgk"]
 [ext_resource type="TileSet" uid="uid://rd0tyvgpk6dl" path="res://Stages/Tilesets/BasicGroundTileset/hidden_ground_tileset.tres" id="3_fpu8u"]
 [ext_resource type="PackedScene" uid="uid://cjmpc6pv5y455" path="res://Entities/Player/player.tscn" id="3_j2xt5"]
 [ext_resource type="Texture2D" uid="uid://csk70qfk4ikb2" path="res://Stages/StartArea/background_grid.png" id="3_oajhm"]
@@ -14,6 +15,30 @@
 [ext_resource type="Texture2D" uid="uid://c7d1m1qqspi26" path="res://Stages/StartArea/Lights/StartLeftTop.png" id="13_hhf3b"]
 [ext_resource type="PackedScene" uid="uid://bv67h1xb2oixd" path="res://Entities/InteractionZone/ExitDoor/exit_door.tscn" id="13_wp323"]
 [ext_resource type="PackedScene" uid="uid://d2gdk8od3nlqq" path="res://Stages/Credits/credits.tscn" id="14_1iyhe"]
+
+[sub_resource type="Curve2D" id="Curve2D_wkf5w"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 232, 160, 0, 0, 0, 0, 232, 104)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_txa4d"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 272, 80, 0, 0, 0, 0, 368, 80)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_n2u1i"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 168, 128, 0, 0, 0, 0, 96, 128, 0, 0, 0, 0, 96, 200)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_57lwx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 40, 120, 0, 0, 0, 0, 40, 56, 0, 0, 0, 0, 120, 56, 0, 0, 0, 0, 120, 112)
+}
+point_count = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4wai"]
 size = Vector2(20, 224)
@@ -90,8 +115,45 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAIAAAAAAAMAAAACAAAAAAAAAAQAAAACAAE
 tile_set = ExtResource("1_605ti")
 
 [node name="FadingLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAPAAwAAAADAAMAAAALAAkAAAADAAMAAAAIAAcAAAADAAMAAAAOAAUAAAADAAMAAAATAAsAAAADAAMAAAAXAAoAAAADAAMAAAASAAYAAAADAAMAAAADAAUAAAADAAMAAAAWAAUAAAADAAMAAAAHAAwAAAADAAMAAAAEAAoAAAADAAMAAAA=")
 tile_set = ExtResource("1_605ti")
+
+[node name="Clouds" type="Node2D" parent="."]
+
+[node name="MovablePlatform" parent="Clouds" instance=ExtResource("3_3rhgk")]
+position = Vector2(280, 184)
+
+[node name="MovablePlatform2" parent="Clouds" instance=ExtResource("3_3rhgk")]
+position = Vector2(352, 168)
+small = false
+
+[node name="Path2D" type="Path2D" parent="Clouds"]
+curve = SubResource("Curve2D_wkf5w")
+
+[node name="MovablePlatform" parent="Clouds/Path2D" instance=ExtResource("3_3rhgk")]
+position = Vector2(232, 160)
+duration = 2.0
+
+[node name="Path2D2" type="Path2D" parent="Clouds"]
+curve = SubResource("Curve2D_txa4d")
+
+[node name="MovablePlatform" parent="Clouds/Path2D2" instance=ExtResource("3_3rhgk")]
+position = Vector2(272, 80)
+duration = 3.0
+
+[node name="Path2D3" type="Path2D" parent="Clouds"]
+curve = SubResource("Curve2D_n2u1i")
+
+[node name="MovablePlatform3" parent="Clouds/Path2D3" instance=ExtResource("3_3rhgk")]
+position = Vector2(168, 128)
+duration = 3.0
+
+[node name="Path2D4" type="Path2D" parent="Clouds"]
+curve = SubResource("Curve2D_57lwx")
+
+[node name="MovablePlatform3" parent="Clouds/Path2D4" instance=ExtResource("3_3rhgk")]
+position = Vector2(40, 120)
+duration = 4.0
+small = false
 
 [node name="Cameras" type="Node" parent="."]
 

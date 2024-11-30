@@ -538,7 +538,6 @@ ending = ExtResource("31_kr7f1")
 texture = ExtResource("31_v8h8b")
 
 [node name="CaveShadow" type="PointLight2D" parent="CaveObjects"]
-visible = false
 position = Vector2(244, 432)
 scale = Vector2(62.88, 4.05)
 blend_mode = 1

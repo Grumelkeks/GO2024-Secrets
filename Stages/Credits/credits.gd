@@ -1,3 +1,4 @@
+class_name Credits
 extends CanvasLayer
 
 @onready var ending: Label = $VBoxContainer/Ending

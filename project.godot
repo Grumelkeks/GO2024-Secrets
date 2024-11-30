@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalNames="*res://Assets/Globals/global_names.tscn"
-CameraTransition="*res://Assets/Globals/camera_transition.tscn"
+CameraTransition="*res://Stages/Tilesets/camera_transition.tscn"
 EndingStorageGlobal="*res://Assets/Globals/ending_storage/ending_storage.tscn"
 MusicPlayer="*res://Assets/Globals/MusicPlayer/music_player.tscn"
 SceneSwitcher="*res://Assets/Globals/SceneSwitcher.tscn"

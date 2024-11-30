@@ -13,6 +13,9 @@ script = ExtResource("1_e3wdl")
 [node name="ZoomWaitTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="EndAreaTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="WhooshPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_0i5at")
 script = ExtResource("3_rjjjg")

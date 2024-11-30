@@ -20,5 +20,4 @@ func speak():
 			break
 
 func show_text(text : String):
-	print(text)
 	await speech_bubble.show_text(text)

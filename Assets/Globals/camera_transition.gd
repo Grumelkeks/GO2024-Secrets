@@ -2,6 +2,7 @@ extends Node
 
 signal transition_finished
 signal zoom_finished
+signal end_area_zoom_finished(door: bool)
 
 @onready var camera: Camera2D = $Camera2D
 
@@ -12,7 +13,9 @@ const ZOOM_MULTIPLIER: float = 1
 const WAIT_DURATION: float = 1
 var end_cam: Camera2D
 @onready var zoom_wait_timer: Timer = $ZoomWaitTimer
+@onready var end_area_timer: Timer = $EndAreaTimer
 
+var end_area_door: bool = false
 
 var transitioning = false
 
@@ -27,6 +30,7 @@ var elapsed: float = 0.0
 func _ready() -> void:
 	set_process(false)
 	zoom_wait_timer.timeout.connect(_on_zoom_wait_timer_timeout)
+	end_area_timer.timeout.connect(_on_end_area_timer_timeout)
 
 
 func transition_camera(m_player: Player, m_from: Camera2D, m_to: Camera2D, m_multiplier: float) -> void:
@@ -118,11 +122,20 @@ func camera_end_zoom() -> void:
 func _on_zoom_wait_timer_timeout() -> void:
 	zoom_finished.emit()
 
-func end_area_camera_zoom() -> void:
+func end_area_camera_zoom(door: bool = false) -> void:
 	player = get_parent().get_node("EndArea").get_node("Player")
 	transition_camera(player, _current_cam("EndArea"), end_cam, ZOOM_MULTIPLIER)
 	
 	await(transition_finished)
+	
+	end_area_door = door
+	end_area_timer.start(WAIT_DURATION)
+
+func _on_end_area_timer_timeout() -> void:
+	if end_area_door:
+		end_area_zoom_finished.emit(true)
+	else:
+		end_area_zoom_finished.emit(false)
 
 func _current_cam(area: StringName = "StartArea") -> Camera2D:
 	var cam: Camera2D

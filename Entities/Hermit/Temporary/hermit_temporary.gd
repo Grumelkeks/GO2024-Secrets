@@ -32,5 +32,4 @@ func speak():
 			self.queue_free()
 
 func show_text(text : String):
-	print(text)
 	await speech_bubble.show_text(text)
