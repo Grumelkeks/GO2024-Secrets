@@ -16,6 +16,7 @@ const HIDDEN_LAYER_FADE_TIME: float = 1.0
 var tween: Tween
 
 func _ready() -> void:
+	credits.connect("ending_triggered", _on_ending )
 	fading_layer.modulate = Color(1,1,1,0)
 	fading_layer.collision_enabled = false
 	camera.make_current()
@@ -24,6 +25,9 @@ func _ready() -> void:
 	clouds.process_mode = Node.PROCESS_MODE_DISABLED
 	clouds.modulate = Color(1,1,1,0)
 	MusicPlayer.switch_music("Ending")
+
+func _on_ending():
+	player.set_process(false)
 
 func ghost_appear():
 	player.direction = 0

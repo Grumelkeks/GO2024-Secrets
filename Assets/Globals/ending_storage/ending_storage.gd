@@ -17,6 +17,8 @@ var rows_done: Array[bool] = [false, false, false]
 @onready var coins: Array[StringName]
 
 var big_rock_pos:Vector2 = Vector2(312, 240)
+var temp_hermit_talked_to = false
+var hermit_talked_to = false
 
 func coin_pickup(coin: Coin) -> void:
 	coins.append(coin.name)

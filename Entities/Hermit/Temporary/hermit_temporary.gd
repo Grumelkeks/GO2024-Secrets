@@ -6,18 +6,20 @@ extends Hermit
 
 var dialogue := [
 	"Welcome Traveller...",
-	"There are still 11 more endings hidden here",
+	"There are 12 endings hidden in these lands",
 	"If you need a hint, you can talk to me anytime",
 	"You just need to find me...",
 	"Oh, and if you want to see the endings menu, press [Tab]"
 ]
 
 func _ready() -> void:
-	if EndingStorageGlobal.get_num_of_endings() != 1:
+	if EndingStorageGlobal.get_num_of_endings() < 1 or EndingStorageGlobal.temp_hermit_talked_to == true:
 		queue_free()
 	talk_count = 0
+	
 
 func speak():
+	EndingStorageGlobal.temp_hermit_talked_to = true
 	interaction_zone.set_deferred("monitoring", false)
 	while true:
 		if talk_count < dialogue.size():

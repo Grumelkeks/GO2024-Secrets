@@ -30,6 +30,7 @@ var text_dict := {
 	# Extras
 	"caveLocked" : "Have you found a way into the underground yet?",
 	"skyLocked" : "Have you tried lighting the campfire?",
+	"skyNotFound" : "Ascend with the clouds"
 }
 
 var secret_text = [
@@ -37,6 +38,7 @@ var secret_text = [
 	"It's been so long since I've talked to someone...",
 	"I still remember the time when I travelled these lands",
 	"Need any more hints?",
+	"By the way, if you want to see the endings menu, press [Tab]"
 ]
 
 var talk_count = 0
@@ -73,17 +75,25 @@ func load_endings():
 			if endings_mask[idx] == 0:
 				active_endings.append(endings[idx])
 	elif endings_mask[5] == 1:
-		active_endings.append("skyLocked")
+		if EndingStorageGlobal.campfire_lit == false:
+			active_endings.append("skyLocked")
+		else:
+			active_endings.append("skyNotFound")
 	
 	active_endings.shuffle()
 
 func speak():
-	if (talk_count + 1) % 4 == 0:
+	if talk_count == 0 and EndingStorageGlobal.temp_hermit_talked_to == true and EndingStorageGlobal.hermit_talked_to == false:
+		show_text("So you found me... Do you need a hint?")
+	elif talk_count == 0 and EndingStorageGlobal.hermit_talked_to == false:
+		show_text("Welcome traveller... Do you need a hint?")
+	elif (talk_count + 1) % 4 == 0:
 		show_text(secret_text.pick_random())
 	else:
 		show_text(text_dict[active_endings[endings_position % active_endings.size()]])
 		endings_position += 1
 	talk_count += 1
+	EndingStorageGlobal.hermit_talked_to = true
 
 func show_text(text : String):
 	speech_bubble.show_text(text)

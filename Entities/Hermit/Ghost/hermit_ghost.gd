@@ -5,8 +5,8 @@ var dialogue := [
 	"You found every ending",
 	"You can be proud of yourself",
 	"... What's the reward, you're asking?",
-	"The experience, that's the reward",
-	"Now go, go and find yourself...",
+	"The journey, that's the reward",
+	"Now go, go and find your own path...",
 ]
 
 func _ready() -> void:

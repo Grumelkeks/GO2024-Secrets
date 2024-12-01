@@ -24,21 +24,21 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_txa4d"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 272, 80, 0, 0, 0, 0, 368, 80)
+"points": PackedVector2Array(0, 0, 0, 0, 232, 80, 0, 0, 0, 0, 384, 80)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_n2u1i"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 168, 128, 0, 0, 0, 0, 96, 128, 0, 0, 0, 0, 96, 200)
+"points": PackedVector2Array(0, 0, 0, 0, 168, 112, 0, 0, 0, 0, 96, 112, 0, 0, 0, 0, 96, 200)
 }
 point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_57lwx"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 40, 120, 0, 0, 0, 0, 40, 56, 0, 0, 0, 0, 120, 56, 0, 0, 0, 0, 120, 112)
+"points": PackedVector2Array(0, 0, 0, 0, 40, 72, 0, 0, 0, 0, 200, 72)
 }
-point_count = 4
+point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4wai"]
 size = Vector2(20, 224)
@@ -137,23 +137,22 @@ duration = 2.0
 curve = SubResource("Curve2D_txa4d")
 
 [node name="MovablePlatform" parent="Clouds/Path2D2" instance=ExtResource("3_3rhgk")]
-position = Vector2(272, 80)
+position = Vector2(232, 80)
 duration = 3.0
 
 [node name="Path2D3" type="Path2D" parent="Clouds"]
 curve = SubResource("Curve2D_n2u1i")
 
 [node name="MovablePlatform3" parent="Clouds/Path2D3" instance=ExtResource("3_3rhgk")]
-position = Vector2(168, 128)
+position = Vector2(168, 112)
 duration = 3.0
 
 [node name="Path2D4" type="Path2D" parent="Clouds"]
 curve = SubResource("Curve2D_57lwx")
 
-[node name="MovablePlatform3" parent="Clouds/Path2D4" instance=ExtResource("3_3rhgk")]
-position = Vector2(40, 120)
-duration = 4.0
-small = false
+[node name="MovablePlatform" parent="Clouds/Path2D4" instance=ExtResource("3_3rhgk")]
+position = Vector2(40, 72)
+duration = 3.0
 
 [node name="Cameras" type="Node" parent="."]
 
